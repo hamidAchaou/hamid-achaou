@@ -35,6 +35,25 @@
             "github": "https://github.com/yourusername/real-estate-management",
             "report": "Link to Figma for design validation and GitHub for source code.",
             "liveDemo": "#"
-        }
+        },
+        {
+            "id": "moroccan-crafts-ecommerce",
+            "title": "Moroccan Crafts E-commerce",
+            "image": "assets/images/moroccan-crafts-ecommerce-cover.png",
+            "description": "A full-stack Laravel 10 E-commerce platform with Stripe payment, role-based admin panel (Spatie Permission), product & order management, wishlist, cart, and clean UI built with TailwindCSS and Alpine.js.",
+            "category": "laravel",
+            "technologies": [
+                "Laravel 10",
+                "PHP",
+                "MySQL",
+                "TailwindCSS",
+                "Alpine.js",
+                "Stripe API",
+                "Spatie Permission"
+            ],
+            "github": "https://github.com/hamidAchaou/ecommerce-app-laravel-10",
+            "report": "https://your-documentation-or-notion-link.com",
+            "liveDemo": "https://your-live-domain.com"
+        }        
     ]
 }
