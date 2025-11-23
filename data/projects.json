@@ -39,7 +39,7 @@
         {
             "id": "moroccan-crafts-ecommerce",
             "title": "Moroccan Crafts E-commerce",
-            "image": "assets/images/moroccan-crafts-ecommerce-cover.png",
+            "image": "assets/images/moroccan-crafts-ecommerce-cover2.png",
             "description": "A full-stack Laravel 10 E-commerce platform with Stripe payment, role-based admin panel (Spatie Permission), product & order management, wishlist, cart, and clean UI built with TailwindCSS and Alpine.js.",
             "category": "laravel",
             "technologies": [
@@ -54,6 +54,26 @@
             "github": "https://github.com/hamidAchaou/ecommerce-app-laravel-10",
             "report": "https://your-documentation-or-notion-link.com",
             "liveDemo": "https://your-live-domain.com"
-        }        
+        },
+        {
+            "id": "landing-page-for-businesses",
+            "title": "Landing Page for Businesses",
+            "image": "assets/images/landing-page-for-businesses.png",
+            "description": "A modern, high-converting landing page built with React, Vite, and TailwindCSS. Designed with a premium UI/UX focus and optimized for SEO, speed, and mobile performance. Includes animated components, live conversion dashboard using Chart.js, and multilingual support with i18next.",
+            "category": "react",
+            "technologies": [
+                "React",
+                "Vite",
+                "TailwindCSS",
+                "Framer Motion",
+                "Chart.js",
+                "React Chart.js 2",
+                "i18next",
+                "Lucide React"
+            ],
+            "github": "https://github.com/hamidAchaou/Landing-Page-for-Businesses/tree/main/app-reactjs",
+            "report": "app-reactjs/package.json",
+            "liveDemo": "https://landing-page-for-businesses.vercel.app/"
+        }
     ]
 }
