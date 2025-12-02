@@ -74,6 +74,24 @@
             "github": "https://github.com/hamidAchaou/Landing-Page-for-Businesses/tree/main/app-reactjs",
             "report": "app-reactjs/package.json",
             "liveDemo": "https://landing-page-for-businesses.vercel.app/"
+        },
+        {
+            "id": "beast-gym",
+            "title": "BEAST GYM",
+            "image": "assets/images/beast-gym-cover2.png",
+            "description": "Premium fitness center website with 24/7 access, pro trainers, luxury amenities, classes, gallery, and contact form. Built with modern HTML, CSS, and JavaScript with accessibility, SEO, and performance best practices in mind.",
+            "category": "web",
+            "technologies": [
+                "HTML5",
+                "CSS3",
+                "JavaScript",
+                "Font Awesome",
+                "Responsive Design",
+                "SEO Best Practices"
+            ],
+            "github": "https://github.com/hamidAchaou/BEASTGYM",
+            "report": "#",
+            "liveDemo": "https://hamidachaou.github.io/BEASTGYM/"
         }
     ]
 }
