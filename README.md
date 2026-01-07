@@ -45,6 +45,7 @@ I enjoy transforming ideas into functional, elegant, and efficient digital produ
 ### ⚙️ Backend
 - PHP
 - Laravel
+- Symfony
 - REST APIs
 
 ### 🧩 CMS
@@ -135,3 +136,4 @@ Reusing the design or content for commercial purposes requires permission.
 
 ⭐ If you like this portfolio, feel free to **star the repository**  
 and connect with me on GitHub!
+
