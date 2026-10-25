@@ -5,386 +5,942 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="portfolio hamid achaou full stack developper"
+      content="Hamid Achaou - Full Stack Developer | Modern web applications with Laravel, React, Symfony"
     />
     <meta
       name="keywords"
-      content="hamid achaou, achaou, developper, frontend developper, backend developper"
+      content="Hamid Achaou, Full Stack Developer, Laravel, React, Symfony, Portfolio"
     />
-    <title>Portfolio Achaou Hamid</title>
-    <!-- css -->
-    <link rel="stylesheet" href="./assets/css/app.css" />
-    <!-- Boxicons -->
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <!-- scrollreveal -->
-    <script src="https://unpkg.com/scrollreveal"></script>
+    <title>Hamid Achaou | Full Stack Developer</title>
 
+    <!-- Font Awesome 6 -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-  </head>
+    <!-- Google Fonts: Inter & Space Grotesk -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: #0a0a0f;
+        color: #eef2ff;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #1e1e2a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #6366f1;
+        border-radius: 10px;
+      }
+
+      /* Animated gradient background */
+      .bg-glow {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        background: radial-gradient(
+          circle at 20% 30%,
+          rgba(99, 102, 241, 0.15),
+          rgba(0, 0, 0, 0.95)
+        );
+      }
+      .bg-glow::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at 80% 70%,
+          rgba(236, 72, 153, 0.08),
+          transparent
+        );
+        animation: pulseGlow 12s infinite alternate;
+      }
+      @keyframes pulseGlow {
+        0% {
+          opacity: 0.3;
+        }
+        100% {
+          opacity: 0.8;
+        }
+      }
+
+      /* Header / Nav */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        backdrop-filter: blur(12px);
+        background: rgba(10, 10, 15, 0.7);
+        z-index: 1000;
+        border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+        transition: all 0.3s ease;
+      }
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #c084fc, #60a5fa);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-family: "Space Grotesk", monospace;
+      }
+      .navlist {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+      }
+      .navlist a {
+        text-decoration: none;
+        color: #cbd5e6;
+        font-weight: 500;
+        transition: 0.3s;
+        font-size: 0.95rem;
+      }
+      .navlist a:hover,
+      .navlist a.active {
+        color: #a78bfa;
+        text-shadow: 0 0 8px rgba(167, 139, 250, 0.5);
+      }
+      #menu-icon {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: #f0f0ff;
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.8rem 1.8rem;
+        border-radius: 40px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        background: linear-gradient(95deg, #4f46e5, #7c3aed);
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 0.9rem;
+        box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+      }
+      .btn-outline {
+        background: transparent;
+        border: 1.5px solid #8b5cf6;
+        color: #c4b5fd;
+        box-shadow: none;
+      }
+      .btn-outline:hover {
+        background: rgba(139, 92, 246, 0.15);
+        color: white;
+        border-color: #a78bfa;
+      }
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.5);
+      }
+
+      /* Sections global */
+      section {
+        padding: 6rem 5% 4rem;
+      }
+      .container {
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+      .section-title {
+        text-align: center;
+        margin-bottom: 3.5rem;
+      }
+      .section-title span {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        background: linear-gradient(90deg, #818cf8, #c084fc);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-weight: 600;
+      }
+      .section-title h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-top: 0.5rem;
+        font-family: "Space Grotesk", sans-serif;
+      }
+
+      /* Hero */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        padding-top: 5rem;
+      }
+      .hero-content {
+        flex: 1;
+      }
+      .hero-badge {
+        background: rgba(99, 102, 241, 0.2);
+        width: fit-content;
+        padding: 0.3rem 1rem;
+        border-radius: 30px;
+        font-size: 0.8rem;
+        border: 1px solid rgba(167, 139, 250, 0.4);
+        margin-bottom: 1.5rem;
+      }
+      .hero-content h1 {
+        font-size: 3.2rem;
+        font-weight: 800;
+        line-height: 1.2;
+        font-family: "Space Grotesk", sans-serif;
+      }
+      .gradient-text {
+        background: linear-gradient(135deg, #a5b4fc, #e879f9);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .typed-wrapper {
+        margin: 1rem 0;
+        font-size: 1.7rem;
+      }
+      .typed-text {
+        color: #c084fc;
+        font-weight: 600;
+      }
+      .hero-desc {
+        color: #9ca3af;
+        line-height: 1.6;
+        margin: 1.5rem 0;
+        max-width: 550px;
+      }
+      .hero-info {
+        display: flex;
+        gap: 2rem;
+        margin: 2rem 0;
+        flex-wrap: wrap;
+      }
+      .info-card {
+        background: rgba(30, 30, 45, 0.5);
+        backdrop-filter: blur(4px);
+        padding: 0.6rem 1.2rem;
+        border-radius: 30px;
+        border-left: 2px solid #818cf8;
+      }
+      .hero-image {
+        flex: 0.8;
+        position: relative;
+      }
+      .hero-image img {
+        width: 100%;
+        max-width: 380px;
+        filter: drop-shadow(0 0 30px rgba(99, 102, 241, 0.3));
+        animation: float 5s infinite ease;
+      }
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      /* Skills grid */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+      .skill-card {
+        background: rgba(20, 20, 30, 0.6);
+        backdrop-filter: blur(8px);
+        padding: 1.2rem;
+        text-align: center;
+        border-radius: 2rem;
+        border: 1px solid rgba(139, 92, 246, 0.2);
+        transition: all 0.3s;
+      }
+      .skill-card i {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        display: inline-block;
+        background: linear-gradient(145deg, #a78bfa, #60a5fa);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .skill-card:hover {
+        transform: translateY(-5px);
+        border-color: #8b5cf6;
+        background: rgba(99, 102, 241, 0.1);
+      }
+
+      /* Services */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+      .service-item {
+        background: rgba(15, 15, 25, 0.6);
+        backdrop-filter: blur(8px);
+        border-radius: 2rem;
+        padding: 2rem;
+        transition: 0.25s ease;
+        border: 1px solid #2d2d3a;
+      }
+      .service-item:hover {
+        border-color: #7c3aed;
+        transform: scale(1.02);
+        box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.5);
+      }
+      .service-icon {
+        font-size: 2.5rem;
+        background: linear-gradient(145deg, #f472b6, #818cf8);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      /* Projects Gallery */
+      .filter-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 2.5rem;
+        flex-wrap: wrap;
+      }
+      .filter-btn {
+        background: #1e1e2c;
+        border: none;
+        padding: 0.5rem 1.5rem;
+        border-radius: 40px;
+        color: #ccc;
+        font-weight: 500;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .filter-btn.active,
+      .filter-btn:hover {
+        background: #4f46e5;
+        color: white;
+        box-shadow: 0 0 12px #4f46e5;
+      }
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+        gap: 2rem;
+      }
+      .project-card {
+        background: rgba(18, 18, 28, 0.7);
+        border-radius: 1.8rem;
+        overflow: hidden;
+        backdrop-filter: blur(4px);
+        transition: all 0.3s;
+        border: 1px solid #2a2a38;
+        cursor: pointer;
+      }
+      .project-card:hover {
+        transform: translateY(-8px);
+        border-color: #8b5cf6;
+      }
+      .project-img {
+        height: 200px;
+        background: linear-gradient(135deg, #2d2a4a, #1e1b3a);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3.5rem;
+      }
+      .project-info {
+        padding: 1.5rem;
+      }
+      .project-info h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0.3rem;
+      }
+      .project-tags {
+        display: flex;
+        gap: 0.5rem;
+        margin: 0.8rem 0;
+        flex-wrap: wrap;
+      }
+      .tag {
+        background: #2d2a4a;
+        font-size: 0.7rem;
+        padding: 0.2rem 0.8rem;
+        border-radius: 30px;
+        color: #c4b5fd;
+      }
+
+      /* Modal */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(12px);
+        z-index: 1100;
+        align-items: center;
+        justify-content: center;
+      }
+      .modal-content {
+        background: #0f0f1a;
+        max-width: 850px;
+        width: 90%;
+        border-radius: 2rem;
+        border: 1px solid #4f46e5;
+        overflow: hidden;
+        animation: modalFade 0.3s;
+      }
+      @keyframes modalFade {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+        background: #1a1a2a;
+      }
+      .close {
+        font-size: 2rem;
+        cursor: pointer;
+        color: #ccc;
+      }
+      .modal-body {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1.5rem;
+        gap: 1.5rem;
+      }
+      .modal-body img {
+        width: 100%;
+        max-width: 280px;
+        border-radius: 1rem;
+      }
+
+      /* Contact */
+      .contact-form {
+        max-width: 700px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .contact-form input,
+      .contact-form textarea {
+        background: #14141f;
+        border: 1px solid #2e2e42;
+        padding: 1rem;
+        border-radius: 1.5rem;
+        color: white;
+        font-family: inherit;
+        outline: none;
+        transition: 0.2s;
+      }
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        border-color: #8b5cf6;
+        box-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
+      }
+      footer {
+        text-align: center;
+        padding: 2rem;
+        border-top: 1px solid #1f1f2e;
+        color: #6c6f8e;
+      }
+
+      @media (max-width: 850px) {
+        .navlist {
+          display: none;
+        }
+        #menu-icon {
+          display: block;
+        }
+        .hero-content h1 {
+          font-size: 2.2rem;
+        }
+        section {
+          padding: 4rem 5%;
+        }
+      }
+      .mobile-nav {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #0c0c12e6;
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 2rem;
+        z-index: 999;
+        display: none;
+      }
+      .mobile-nav.active {
+        display: flex;
+      }
+    </style>
+  </head>
   <body>
-    <!-- header site -->
+    <div class="bg-glow"></div>
     <header>
-      <div class="logo"><span>A</span>-Hamid.</div>
+      <div class="logo">&lt;Hamid /&gt;</div>
       <ul class="navlist">
         <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#portfolio">Projects</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div id="menu-icon" class="bx bx-menu"></div>
+      <div id="menu-icon"><i class="fas fa-bars"></i></div>
     </header>
-    <!-- ===================== home section ==================== -->
-    <section id="home" class="home">
-      <div class="home-content">
-        <h1>Hi! I'm Hamid ACHaou</h1>
-        <div class="change-text">
-          <h3>And I'm</h3>
-          <h3>
-            <span class="word">Frontend&nbsp;Developer</span>
-            <span class="word">Backend&nbsp;Developer</span>
-          </h3>
-        </div>
-        <p>
-          A passionate and dedicated Full Stack Developer with a strong
-          background in both frontend and backend development. I specialize in
-          creating dynamic, high-performance web applications that provide an
-          excellent user experience. With a keen eye for detail and a commitment
-          to writing clean, efficient code, I aim to bring innovative ideas to
-          life through technology.
-        </p>
-        <div class="my-info">
-          <div class="info-box">
-            <div class="email-info">
-              <h5>Email :</h5>
-              <span>hamidachaou379@gmail.com</span>
-            </div>
-          </div>
-          <div class="info-box">
-            <div class="email-info">
-              <h5>Phone Number :</h5>
-              <span>+212 643 320 632</span>
-            </div>
-          </div>
-        </div>
-        <div class="btn-box">
-          <a href="#" class="btn" id="download-cv">Download CV</a>
-          <a href="mailto:hamidachaou379@gmail.com" class="btn">Hire Me Now!</a>
-        </div>
-        <div class="social-icons">
-          <a href="https://github.com/hamidAchaou"
-            ><i class="bx bxl-github"></i
-          ></a>
-          <a href="https://www.linkedin.com/in/hamid-achaou-093682253/"
-            ><i class="bx bxl-linkedin"></i
-          ></a>
-          <a href="https://www.instagram.com/achaouh/"
-            ><i class="bx bxl-instagram"></i
-          ></a>
-        </div>
-      </div>
-      <div class="home-image">
-        <div class="img-box">
-          <img src="./assets/images/4-removebg-preview-2.png" alt="" />
-        </div>
-        <!-- <div class="liquid-shape">
-                <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                    width="100%" id="blobSvg">
-                    <path fill="#12f7ff">
-                        <animate attributeName="d" dur="20000ms" repeatCount="indefinite"
-                            values="M400,289.5Q386,329,366.5,373.5Q347,418,298.5,436Q250,454,211,419.5Q172,385,141.5,357.5Q111,330,62,290Q13,250,43,199Q73,148,112.5,114.5Q152,81,201,55Q250,29,296.5,58.5Q343,88,396,111.5Q449,135,431.5,192.5Q414,250,400,289.5Z;
-                        
-                        M447.5,300.5Q424,351,389.5,391Q355,431,302.5,462.5Q250,494,192.5,471.5Q135,449,100,403Q65,357,59.5,303.5Q54,250,76.5,206.5Q99,163,130,129.5Q161,96,205.5,85Q250,74,308,61.5Q366,49,415,87.5Q464,126,467.5,188Q471,250,447.5,300.5Z;
-    
-                        M436.5,306Q443,362,403.5,405Q364,448,307,442.5Q250,437,191.5,445Q133,453,110.5,398Q88,343,86,296.5Q84,250,84.5,202.5Q85,155,115,112Q145,69,197.5,61Q250,53,300.5,63.5Q351,74,366.5,124Q382,174,406,212Q430,250,436.5,306Z;
-    
-                        M448.15498,300.93262Q426.78438,351.86524,383.73721,379.66309Q340.69004,407.46094,295.34502,430.33828Q250,453.21562,202.1415,434.86524Q154.28301,416.51485,108.97979,386.85176Q63.67656,357.18867,70.79785,303.59434Q77.91914,250,93.62129,209.59434Q109.32344,169.18867,141.35039,142.91103Q173.37734,116.63339,211.68867,89.37734Q250,62.12129,299.99326,69.58086Q349.98652,77.04043,408.55927,100.69004Q467.13202,124.33965,468.3288,187.16983Q469.52558,250,448.15498,300.93262Z;
-    
-                        M441.69096,291.29378Q393.99886,332.58756,383.51469,398.44182Q373.03052,464.29607,311.51526,455.73617Q250,447.17627,199.08813,436.94124Q148.17627,426.70622,130.35368,378.2644Q112.53109,329.82259,59.83785,289.91129Q7.1446,250,50.79264,205.1322Q94.44067,160.2644,131.29378,134.24971Q168.14689,108.23502,209.07345,90.45593Q250,72.67684,301.94124,70.95593Q353.88249,69.23502,381.3079,113.61808Q408.73331,158.00114,449.05818,204.00057Q489.38306,250,441.69096,291.29378Z;
-    
-                        M428.40137,287.33238Q379.37742,324.66477,354.68301,356.56043Q330.00575,388.4561,296.5,425.20356Q263.01194,461.95103,217.75258,449.45103Q172.49323,436.95103,130.5,409.30575Q88.53091,381.63599,67.72088,336.31799Q46.91084,291,72.0545,247.57663Q97.19816,204.15325,125.90897,166.47256Q154.61977,128.79187,199.128,107.30356Q243.63622,85.81525,291.76811,84.17001Q339.9,82.52478,365.63622,126.19509Q391.37244,169.8654,427.71268,209.9327Q464.05291,250,428.40137,287.33238Z;
-    
-                        M400,289.5Q386,329,366.5,373.5Q347,418,298.5,436Q250,454,211,419.5Q172,385,141.5,357.5Q111,330,62,290Q13,250,43,199Q73,148,112.5,114.5Q152,81,201,55Q250,29,296.5,58.5Q343,88,396,111.5Q449,135,431.5,192.5Q414,250,400,289.5Z"></animate>
-                    </path>
-                </svg>
-            </div> -->
-      </div>
-    </section>
-    <!-- ===================== end home section ==================== -->
-    <!-- ===================== about section ==================== -->
-    <section id="about" class="about">
-      <div class="img-about">
-        <img src="./assets/images/21D-removebg-preview.webp" alt="Hamido" />
-        <div class="info-about1">
-          <span>3+</span>
-          <p>Years of experience</p>
-        </div>
-        <div class="info-about2">
-          <span>12+</span>
-          <p>Projects completed</p>
-        </div>
-        <div class="info-about3">
-          <span>12+</span>
-          <p>Happy clients</p>
-        </div>
-      </div>
-      <div class="about-content">
-        <span>Let me introduce myself</span>
-        <h2>About Me</h2>
-        <p>
-          I am a passionate and dedicated Full Stack Developer based in Morocco,
-          with a strong background in both frontend and backend development. I
-          have a certificate in web development and over 2 years of professional
-          experience in building web applications. My journey into web
-          development started with a curiosity to create digital experiences
-          that are both functional and aesthetically pleasing.
-        </p>
-        <p>
-          Over the years, I have honed my skills in various technologies such as
-          PHP, Laravel, JavaScript, React, and more. I am proficient in
-          designing responsive and intuitive user interfaces and implementing
-          complex backend logic to support these interfaces.
-        </p>
-      </div>
-    </section>
-    <!-- ===================== Service section ==================== -->
-    <section class="services" id="services">
-      <div class="main-text">
-        <span>What We Offer</span>
-        <h2>Our Services</h2>
-      </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#home">Home</a><a href="#services">Services</a
+      ><a href="#skills">Skills</a><a href="#projects">Projects</a
+      ><a href="#contact">Contact</a>
+    </div>
 
-      <div class="section-services scroll-bottom">
-        <div class="service-box">
-          <i class="bx bxs-layer service-icon"></i>
-          <h3>Frontend Development</h3>
+    <!-- Hero Section -->
+    <section id="home" class="container hero">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-code"></i> Full Stack Developer
+        </div>
+        <h1>
+          Building <span class="gradient-text">business-ready</span><br />
+          web applications
+        </h1>
+        <div class="typed-wrapper">
+          <span>Specialized in </span
+          ><span class="typed-text" id="typedElement"></span>
+        </div>
+        <p class="hero-desc">
+          React, Laravel, Symfony — I turn complex ideas into scalable,
+          high-performance web apps used by real businesses.
+        </p>
+        <div class="hero-info">
+          <div class="info-card">
+            <i class="fas fa-envelope"></i> hamidachaou379@gmail.com
+          </div>
+          <div class="info-card">
+            <i class="fas fa-phone-alt"></i> +212 643 320 632
+          </div>
+        </div>
+        <div class="btn-box" style="display: flex; gap: 1rem; flex-wrap: wrap">
+          <a href="#projects" class="btn"
+            ><i class="fab fa-react"></i> View Work</a
+          >
+          <a href="#contact" class="btn btn-outline"
+            ><i class="fas fa-paper-plane"></i> Hire Me</a
+          >
+          <a href="#" id="downloadCvBtn" class="btn btn-outline"
+            ><i class="fas fa-download"></i> Download CV</a
+          >
+        </div>
+        <div
+          class="social-icons"
+          style="margin-top: 2rem; display: flex; gap: 1.5rem"
+        >
+          <a
+            href="https://github.com/hamidAchaou"
+            style="color: #cbd5e6; font-size: 1.6rem"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/hamid-achaou-093682253/"
+            style="color: #cbd5e6; font-size: 1.6rem"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="./assets/images/me5.png" alt="Hamid Achaou" />
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="container" aria-labelledby="services-heading">
+      <div class="section-title">
+        <span>What I offer</span>
+        <h2 id="services-heading">Dev Services</h2>
+      </div>
+      <div class="services-grid">
+        <!-- Full Stack Applications -->
+        <div class="service-item">
+          <i class="fas fa-code service-icon" aria-hidden="true"></i>
+          <h3>Full Stack Apps</h3>
           <p>
-            Create responsive and user-friendly interfaces with cutting-edge
-            technologies. I specialize in crafting seamless experiences that
-            engage and delight users.
+            Robust applications built with React, Laravel, and Symfony,
+            featuring authentication, role management, and payment
+            integrations[cite: 1].
           </p>
         </div>
-        <div class="service-box">
-          <i class="bx bx-desktop service-icon"></i>
-          <h3>Backend Development</h3>
+
+        <!-- E-commerce Solutions -->
+        <div class="service-item">
+          <i class="fas fa-cart-shopping service-icon" aria-hidden="true"></i>
+          <h3>E‑commerce Solutions</h3>
           <p>
-            Build robust server-side applications and APIs that power your web
-            and mobile apps. Our solutions are scalable, secure, and tailored to
-            meet your specific business needs.
+            Custom online stores with Stripe payment gateways, admin dashboards,
+            and inventory management[cite: 1].
           </p>
         </div>
-        <div class="service-box">
-          <i class="bx bxl-wordpress service-icon"></i>
-          <h3>WordPress Development</h3>
+
+        <!-- SaaS & Dashboards -->
+        <div class="service-item">
+          <i class="fas fa-chart-line service-icon" aria-hidden="true"></i>
+          <h3>SaaS & Dashboards</h3>
           <p>
-            Customize and extend WordPress to create powerful websites and web
-            applications. From theme development to plugin customization, we
-            provide solutions that drive your business forward.
+            Interactive business intelligence and project management dashboards
+            built with React, FastAPI, and real-time analytics[cite: 1].
+          </p>
+        </div>
+
+        <!-- WordPress & CMS Solutions (Added from CV) -->
+        <div class="service-item">
+          <i class="fab fa-wordpress service-icon" aria-hidden="true"></i>
+          <h3>WordPress & CMS</h3>
+          <p>
+            Tailored dynamic websites, custom layouts, and business-focused CMS
+            solutions designed for performance and ease of use[cite: 1].
+          </p>
+        </div>
+
+        <!-- Bug Fixing & Optimization -->
+        <div class="service-item">
+          <i class="fas fa-bug service-icon" aria-hidden="true"></i>
+          <h3>Bug Fix & Optimization</h3>
+          <p>
+            SQL query tuning, performance refactoring, debugging, and adding new
+            features to production systems[cite: 1].
           </p>
         </div>
       </div>
     </section>
-    <!-- ===================== skills section ==================== -->
-    <section class="skills" id="skills">
-      <div class="main-text">
-        <span>Technical and Professional</span>
-        <h2>My Skills</h2>
+
+    <!-- Skills -->
+    <section id="skills" class="container">
+      <div class="section-title">
+        <span>Tech Arsenal</span>
+        <h2>Core Skills</h2>
       </div>
-      <div class="skill-main">
-        <div class="skill-left">
-          <h3>Technical Skills</h3>
-          <div class="skill-bar">
-            <div class="info">
-              <p>HTML &amp; CSS</p>
-              <p>80%</p>
-            </div>
-            <div class="bar">
-              <span class="html"></span>
-            </div>
-          </div>
-          <div class="skill-bar">
-            <div class="info">
-              <p>PHP</p>
-              <p>85%</p>
-            </div>
-            <div class="bar">
-              <span class="php"></span>
-            </div>
-          </div>
-          <div class="skill-bar">
-            <div class="info">
-              <p>Laravel</p>
-              <p>85%</p>
-            </div>
-            <div class="bar">
-              <span class="laravel"></span>
-            </div>
-          </div>
-          <div class="skill-bar">
-            <div class="info">
-              <p>Symfony</p>
-              <p>80%</p>
-            </div>
-            <div class="bar">
-              <span class="symfony"></span>
-            </div>
-          </div>
-          
-          <div class="skill-bar">
-            <div class="info">
-              <p>JavaScript</p>
-              <p>80%</p>
-            </div>
-            <div class="bar">
-              <span class="javascript"></span>
-            </div>
-          </div>
-          <div class="skill-bar">
-            <div class="info">
-              <p>React</p>
-              <p>75%</p>
-            </div>
-            <div class="bar">
-              <span class="react"></span>
-            </div>
-          </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <i class="fab fa-laravel"></i>
+          <h4>Laravel</h4>
+          <p>85%</p>
         </div>
-        <div class="skill-right">
-          <h3>Professional Skills</h3>
-          <div class="professional">
-            <div class="box">
-              <div class="circle" data-dots="80" data-percent="90"></div>
-              <div class="text">
-                <big>90%</big>
-                <small>Team Collaboration</small>
-              </div>
-            </div>
-            <div class="box">
-              <div class="circle" data-dots="80" data-percent="85"></div>
-              <div class="text">
-                <big>85%</big>
-                <small>Project Management</small>
-              </div>
-            </div>
-            <div class="box">
-              <div class="circle" data-dots="80" data-percent="80"></div>
-              <div class="text">
-                <big>80%</big>
-                <small>Communication</small>
-              </div>
-            </div>
-            <div class="box">
-              <div class="circle" data-dots="80" data-percent="85"></div>
-              <div class="text">
-                <big>85%</big>
-                <small>Problem Solving</small>
-              </div>
-            </div>
-          </div>
+        <div class="skill-card">
+          <i class="fab fa-symfony"></i>
+          <h4>Symfony</h4>
+          <p>80%</p>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-react"></i>
+          <h4>React.js</h4>
+          <p>80%</p>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-database"></i>
+          <h4>MySQL</h4>
+          <p>85%</p>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-php"></i>
+          <h4>PHP</h4>
+          <p>90%</p>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-js"></i>
+          <h4>JavaScript</h4>
+          <p>85%</p>
         </div>
       </div>
     </section>
-    <!-- ===================== Portfolio dection ==================== -->
-    <section class="portfolio" id="portfolio">
-      <div class="main-text">
-        <span>What I will do for you</span>
-        <h2>Latest Projects</h2>
-      </div>
-      <div class="container">
-        <div class="filter-buttons">
-          <button class="btn" data-filter="all">All</button>
-          <button class="btn" data-filter="laravel">Laravel</button>
-          <button class="btn" data-filter="react">React</button>
-          <button class="btn" data-filter="wordpress">WordPress</button>
-        </div>
 
-        <div class="portfolio-gallery">
-          <!-- Projects will be inserted here dynamically -->
-          <!-- Example project item -->
-          <!-- <div class="portfolio-item" data-category="laravel">
-                    <img src="path/to/project-image.jpg" alt="Project Title">
-                    <div class="overlay">
-                        <h3>Project Title</h3>
-                        <p>Description of the project goes here.</p>
-                        <button class="btn">View Details</button>
-                    </div>
-                </div> -->
-        </div>
+    <!-- Projects based on CV (Logidesk, Laravel ecomm, React dashboard) -->
+    <section id="projects" class="container">
+      <div class="section-title">
+        <span>real production experience</span>
+        <h2>Featured Projects</h2>
       </div>
-
-      <!-- Modal for project details -->
-      <div id="projectModal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <div class="modal-body">
-            <div class="modal-image">
-              <img id="modalImage" src="" alt="">
-            </div>
-            <div class="modal-details">
-              <h2 id="modalTitle"></h2>
-              <p id="modalDescription"></p>
-              <div id="modalTechnologies"></div>
-              <div id="modalLinks">
-                <a id="modalGithub" href="" target="_blank" class="btn-link github-link">
-                  <i class="fab fa-github"></i> GitHub
-                </a>
-                <a id="modalReport" href="" target="_blank" class="btn-link report-link">
-                  <i class="fas fa-file-alt"></i> View Report
-              </a>
-                <a id="modalLive" href="" target="_blank" class="btn-link demo-link">
-                  <i class="fas fa-external-link-alt"></i> Live Demo
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="filter-buttons" id="filterGroup">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="laravel">Laravel</button>
+        <button class="filter-btn" data-filter="symfony">Symfony</button>
+        <button class="filter-btn" data-filter="react">React</button>
       </div>
-      
-      </div>
+      <div class="projects-grid" id="projectsContainer"></div>
     </section>
-    <!-- ===================== contact dection ==================== -->
-    <section class="contact" id="contact">
-      <div class="main-text">
-        <span>Ask me question</span>
-        <h2>Contact Me</h2>
+
+    <!-- Contact -->
+    <section id="contact" class="container">
+      <div class="section-title">
+        <span>Get in touch</span>
+        <h2>Let's work together</h2>
       </div>
       <form
+        class="contact-form"
+        id="contactForm"
         action="https://formspree.io/f/xdknkzvy"
         method="POST"
-        id="contactForm"
       >
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <input type="text" name="address" placeholder="Your Address" />
-        <input type="tel" name="phone" placeholder="Phone Number" />
+        <input type="text" name="name" placeholder="Full name" required />
+        <input type="email" name="email" placeholder="Email address" required />
         <textarea
           name="message"
-          id="message"
-          cols="30"
-          rows="10"
-          placeholder="Your Message"
-          required
+          rows="5"
+          placeholder="Tell me about your project..."
         ></textarea>
-        <div class="btn-box formBtn">
-          <button type="submit" class="btn">Send Message</button>
-        </div>
+        <button
+          type="submit"
+          class="btn"
+          style="width: fit-content; margin-top: 0.5rem"
+        >
+          Send Message <i class="fas fa-arrow-right"></i>
+        </button>
       </form>
     </section>
-    <!-- ===================== footer website ==================== -->
+
     <footer>
-      <p>Copyright &copy; 2024 By Hamid AChaou || All Right Reserved</p>
-      <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
+      <p>
+        © 2025 Hamid Achaou — Full Stack Developer (Laravel • React • Symfony).
+        Built with modern magic.
+      </p>
+      <a href="#home" style="color: #a78bfa"
+        ><i class="fas fa-chevron-up"></i
+      ></a>
     </footer>
-    <!-- js -->
-    <script src="./assets/js/mixitup.min.js"></script>
-    <script src="./assets/js/app.js"></script>
+
+    <div id="projectModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Project Details</h3>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body" id="modalBodyContent"></div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let projectsData = [];
+        const projectsContainer = document.getElementById("projectsContainer");
+        const modal = document.getElementById("projectModal");
+        const modalBodyContent = document.getElementById("modalBodyContent");
+
+        // 1. Fetch projects dynamically from data/projects.json
+        async function loadProjects() {
+          try {
+            const response = await fetch("data/projects.json");
+            if (!response.ok) throw new Error("Failed to load projects data.");
+            const jsonData = await response.json();
+
+            // Handle both direct arrays or { projects: [...] } object structures
+            projectsData = Array.isArray(jsonData)
+              ? jsonData
+              : jsonData.projects || [];
+
+            renderProjects("all");
+          } catch (error) {
+            console.error("Error loading projects:", error);
+            if (projectsContainer) {
+              projectsContainer.innerHTML = `<p style="color: #ef4444; grid-column: span 3; text-align: center;">Unable to load projects at the moment.</p>`;
+            }
+          }
+        }
+
+        // 2. Render Projects with XSS Protection
+        function renderProjects(filter = "all") {
+          if (!projectsContainer) return;
+
+          const filtered =
+            filter === "all"
+              ? projectsData
+              : projectsData.filter((p) => p.category === filter);
+
+          projectsContainer.innerHTML = "";
+
+          if (filtered.length === 0) {
+            projectsContainer.innerHTML = `<p style="color: #94a3b8; grid-column: span 3; text-align: center;">No projects found in this category.</p>`;
+            return;
+          }
+
+          const fragment = document.createDocumentFragment();
+
+          filtered.forEach((proj) => {
+            const card = document.createElement("div");
+            card.className = "project-card";
+            card.setAttribute("data-category", proj.category);
+            card.addEventListener("click", () => openModal(proj.id));
+
+            // Join technologies array into a comma-separated string for display
+            const techDisplay = Array.isArray(proj.technologies)
+              ? proj.technologies.slice(0, 3).join(", ")
+              : "";
+
+            card.innerHTML = `
+        <div class="project-img" style="height: 160px; overflow: hidden; background: #1e1e2f;">
+          <img src="${escapeHtml(proj.image)}" alt="${escapeHtml(
+              proj.title
+            )}" style="width:100%; height:100%; object-fit: cover;" onerror="this.src='https://via.placeholder.com/400x200?text=Project'">
+        </div>
+        <div class="project-info" style="padding: 1rem;">
+          <h3 style="color: white; margin-bottom: 0.5rem;">${escapeHtml(
+            proj.title
+          )}</h3>
+          <div class="project-tags" style="margin-bottom: 0.5rem;"><span class="tag" style="background: rgba(167,139,250,0.1); color: #a78bfa; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem;">${escapeHtml(
+            techDisplay
+          )}</span></div>
+          <p style="color: #b9c3d4; font-size:0.85rem; margin: 0;">${escapeHtml(
+            proj.description.substring(0, 90)
+          )}…</p>
+        </div>
+      `;
+            fragment.appendChild(card);
+          });
+
+          projectsContainer.appendChild(fragment);
+        }
+
+        // 3. Modal Management using Project ID
+        window.openModal = (id) => {
+          const project = projectsData.find((p) => p.id === id);
+          if (!project || !modalBodyContent || !modal) return;
+
+          modalBodyContent.innerHTML = "";
+
+          const imgDiv = document.createElement("div");
+          imgDiv.style.cssText = "flex:1; min-width:250px;";
+          imgDiv.innerHTML = `<img src="${escapeHtml(
+            project.image
+          )}" alt="${escapeHtml(
+            project.title
+          )}" style="width:100%; border-radius: 8px; object-fit: cover;">`;
+
+          const techList = Array.isArray(project.technologies)
+            ? project.technologies.join(", ")
+            : "";
+
+          const detailsDiv = document.createElement("div");
+          detailsDiv.style.cssText = "flex:2;";
+          detailsDiv.innerHTML = `
+      <h2 style="color:white; margin-top:0;">${escapeHtml(project.title)}</h2>
+      <p style="margin:0.7rem 0; color:#a1a1c2; line-height: 1.5;">${escapeHtml(
+        project.description
+      )}</p>
+      <p><strong style="color:#a78bfa;">Technologies:</strong> ${escapeHtml(
+        techList
+      )}</p>
+      <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+        ${
+          project.github && project.github !== "#"
+            ? `<a href="${escapeHtml(
+                project.github
+              )}" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.85rem; text-decoration:none; background:#7c3aed; color:white; border-radius:4px;"><i class="fab fa-github"></i> Code</a>`
+            : ""
+        }
+        ${
+          project.liveDemo && project.liveDemo !== "#"
+            ? `<a href="${escapeHtml(
+                project.liveDemo
+              )}" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.85rem; text-decoration:none; background:#4f46e5; color:white; border-radius:4px;"><i class="fas fa-external-link-alt"></i> Live Demo</a>`
+            : ""
+        }
+      </div>
+    `;
+
+          modalBodyContent.appendChild(imgDiv);
+          modalBodyContent.appendChild(detailsDiv);
+          modal.style.display = "flex";
+        };
+
+        // 4. Event Delegation for Filters
+        const filterContainer =
+          document.querySelector(".filter-buttons-container") || document.body;
+        filterContainer.addEventListener("click", (e) => {
+          const btn = e.target.closest(".filter-btn");
+          if (!btn) return;
+
+          document
+            .querySelectorAll(".filter-btn")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          renderProjects(btn.getAttribute("data-filter"));
+        });
+
+        // Modal Close Handlers
+        const closeBtn = document.querySelector(".close");
+        if (closeBtn) {
+          closeBtn.onclick = () => {
+            if (modal) modal.style.display = "none";
+          };
+        }
+        window.onclick = (e) => {
+          if (modal && e.target === modal) modal.style.display = "none";
+        };
+
+        // Helper sanitizer to prevent basic template XSS
+        function escapeHtml(str) {
+          if (!str) return "";
+          return String(str)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+        }
+
+        // Initialize Data Load
+        loadProjects();
+      });
+    </script>
   </body>
 </html>
