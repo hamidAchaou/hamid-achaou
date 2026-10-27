@@ -72,44 +72,58 @@
     </nav>
 
     <main id="main-content">
-    <!-- Hero Section -->
-    <section id="home" class="container hero">
+    <!-- Cinematic hero -->
+    <section id="home" class="container hero" aria-labelledby="hero-heading">
       <div class="hero-content">
+        <p class="hero-eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> Independent developer <span class="eyebrow-dot" aria-hidden="true">·</span> Morocco & remote</p>
         <div class="hero-badge">
-          <i class="fas fa-code"></i> Full Stack Software Developer
+          <span class="status-orb" aria-hidden="true"></span>
+          Available for freelance projects & full-time roles
         </div>
-        <h1>
-          Building <span class="gradient-text">business-ready</span><br />
-          web applications
+        <h1 id="hero-heading">
+          I turn bold ideas<br />into <span class="gradient-text">digital reality.</span>
         </h1>
         <div class="typed-wrapper">
-          <span>Specialized in </span>
-          <span class="typed-text" id="typedElement" aria-live="off"></span>
+          <span class="typed-prefix">I build </span>
+          <span class="typed-text" id="typedElement" aria-live="off">web experiences</span>
+          <span class="typing-caret" aria-hidden="true"></span>
         </div>
         <p class="hero-desc">
-          React, Laravel, Symfony, and WordPress — I engineer scalable, high-performance web applications and digital tools tailored for growing businesses.
+          I'm Hamid Achaou, a full-stack developer creating polished web applications, SaaS dashboards, and e-commerce experiences with Laravel, React, Symfony, and WordPress.
         </p>
-        <div class="hero-info">
-          <div class="info-card">
-            <i class="fas fa-envelope"></i> hamidachaou379@gmail.com
-          </div>
-          <div class="info-card">
-            <i class="fas fa-phone-alt"></i> +212 643 320 632
-          </div>
+        <div class="hero-proof" aria-label="Core strengths">
+          <span><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Full-stack products</span>
+          <span><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Performance-minded</span>
+          <span><i class="fa-solid fa-code" aria-hidden="true"></i> Clean, maintainable code</span>
         </div>
         <div class="btn-box hero-actions">
-          <a href="#projects" class="btn"><i class="fas fa-laptop-code"></i> View Work</a>
-          <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Hire Me</a>
-          <a href="assets/documents/Hamid-Achaou-CV.pdf" id="downloadCvBtn" class="btn btn-outline" download="Hamid-Achaou-CV.pdf" aria-label="Download Hamid Achaou CV as PDF"><i class="fas fa-download"></i> Download CV</a>
+          <a href="#projects" class="btn"><i class="fas fa-arrow-down" aria-hidden="true"></i> Explore my work</a>
+          <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane" aria-hidden="true"></i> Start a conversation</a>
+          <a href="assets/documents/Hamid-Achaou-CV.pdf" id="downloadCvBtn" class="cv-link" download="Hamid-Achaou-CV.pdf" aria-label="Download Hamid Achaou CV as PDF"><i class="fas fa-file-arrow-down" aria-hidden="true"></i> Download CV</a>
         </div>
-        <div class="social-icons hero-socials">
-          <a href="https://github.com/hamidAchaou" target="_blank" rel="noopener noreferrer" class="hero-social-link"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/hamid-achaou-093682253/" target="_blank" rel="noopener noreferrer" class="hero-social-link"><i class="fab fa-linkedin"></i></a>
+        <div class="hero-bottomline">
+          <div class="social-icons hero-socials" aria-label="Social profiles">
+            <a href="https://github.com/hamidAchaou" target="_blank" rel="noopener noreferrer" class="hero-social-link" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/hamid-achaou-093682253/" target="_blank" rel="noopener noreferrer" class="hero-social-link" aria-label="LinkedIn profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+            <a href="mailto:hamidachaou379@gmail.com" class="hero-social-link" aria-label="Email Hamid"><i class="fa-regular fa-envelope" aria-hidden="true"></i></a>
+          </div>
+          <span class="hero-location"><span class="location-ping" aria-hidden="true"></span> Open to opportunities worldwide</span>
         </div>
       </div>
-      <div class="hero-image">
-        <img src="./assets/images/me5.png" alt="Hamid Achaou" onerror="this.style.display='none'" />
+      <div class="hero-image-wrap" aria-label="Developer portrait and technology focus">
+        <div class="hero-image-glow" aria-hidden="true"></div>
+        <div class="hero-image-frame">
+          <div class="frame-topline"><span>HA / PORTFOLIO</span><span>2026</span></div>
+          <div class="hero-image">
+            <img src="./assets/images/me5.png" alt="Portrait of Hamid Achaou" width="520" height="620" fetchpriority="high" decoding="async" />
+          </div>
+          <div class="frame-caption"><span class="caption-mark" aria-hidden="true">✳</span><div><strong>Thoughtful by design.</strong><span>Engineered to make an impact.</span></div></div>
+        </div>
+        <div class="floating-tech floating-tech-top" aria-hidden="true"><i class="fa-brands fa-laravel"></i><span>Laravel</span></div>
+        <div class="floating-tech floating-tech-bottom" aria-hidden="true"><i class="fa-brands fa-react"></i><span>React</span></div>
+        <span class="hero-index" aria-hidden="true">01 <span></span> 05</span>
       </div>
+      <a class="scroll-cue" href="#services"><span class="scroll-cue-line" aria-hidden="true"></span> Scroll to explore</a>
     </section>
 
     <!-- Services Section -->
@@ -333,6 +347,5 @@
       </div>
     </div>
     <script src="./assets/js/app.js" defer></script>
-    <!-- <script src="./assets/js/mixitup.min.js" defer></script> -->
   </body>
 </html>
