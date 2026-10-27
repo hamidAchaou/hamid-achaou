@@ -2,389 +2,350 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="theme-color" content="#0a0a0f" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="portfolio hamid achaou full stack developper"
+      content="Hamid Achaou - Full Stack Software Developer | Modern web applications, APIs, and CMS solutions built with Laravel, React, Symfony, and WordPress."
     />
     <meta
       name="keywords"
-      content="hamid achaou, achaou, developper, frontend developper, backend developper"
+      content="Hamid Achaou, Full Stack Developer, Laravel, React, Symfony, WordPress, Web Developer Morocco, PHP Developer"
     />
-    <title>Portfolio Achaou Hamid</title>
-    <!-- css -->
-    <link rel="stylesheet" href="./assets/css/app.css" />
-    <!-- Boxicons -->
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <!-- scrollreveal -->
-    <script src="https://unpkg.com/scrollreveal"></script>
+    <title>Hamid Achaou | Full Stack Software Developer</title>
 
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://hamidachaou.github.io/" />
+    <meta property="og:title" content="Hamid Achaou | Full Stack Software Developer" />
+    <meta property="og:description" content="Explore the portfolio of Hamid Achaou, a Full Stack Software Developer specializing in Laravel, React, Symfony, and WordPress applications." />
+    <meta property="og:image" content="https://hamidachaou.github.io/assets/images/preview-banner.png" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://hamidachaou.github.io/" />
+    <meta name="twitter:title" content="Hamid Achaou | Full Stack Software Developer" />
+    <meta name="twitter:description" content="Explore the portfolio of Hamid Achaou, a Full Stack Software Developer specializing in Laravel, React, Symfony, and WordPress applications." />
+    <meta name="twitter:image" content="https://hamidachaou.github.io/assets/images/preview-banner.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="./assets/css/app.css" />
+    <!-- Font Awesome 6 -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <!-- Google Fonts: Inter & Space Grotesk -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-
   <body>
-    <!-- header site -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="bg-glow" aria-hidden="true"></div>
+
     <header>
-      <div class="logo"><span>A</span>-Hamid.</div>
-      <ul class="navlist">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#portfolio">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <div id="menu-icon" class="bx bx-menu"></div>
+      <a href="#home" class="logo">&lt;Hamid /&gt;</a>
+      <nav aria-label="Primary navigation">
+        <ul class="navlist">
+          <li><a href="#home" class="active" aria-current="location">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="menu-icon" type="button" aria-label="Open navigation menu"
+        aria-controls="mobileNav" aria-expanded="false">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
     </header>
-    <!-- ===================== home section ==================== -->
-    <section id="home" class="home">
-      <div class="home-content">
-        <h1>Hi! I'm Hamid ACHaou</h1>
-        <div class="change-text">
-          <h3>And I'm</h3>
-          <h3>
-            <span class="word">Frontend&nbsp;Developer</span>
-            <span class="word">Backend&nbsp;Developer</span>
-          </h3>
-        </div>
-        <p>
-          A passionate and dedicated Full Stack Developer with a strong
-          background in both frontend and backend development. I specialize in
-          creating dynamic, high-performance web applications that provide an
-          excellent user experience. With a keen eye for detail and a commitment
-          to writing clean, efficient code, I aim to bring innovative ideas to
-          life through technology.
-        </p>
-        <div class="my-info">
-          <div class="info-box">
-            <div class="email-info">
-              <h5>Email :</h5>
-              <span>hamidachaou379@gmail.com</span>
-            </div>
-          </div>
-          <div class="info-box">
-            <div class="email-info">
-              <h5>Phone Number :</h5>
-              <span>+212 643 320 632</span>
-            </div>
-          </div>
-        </div>
-        <div class="btn-box">
-          <a href="#" class="btn" id="download-cv">Download CV</a>
-          <a href="mailto:hamidachaou379@gmail.com" class="btn">Hire Me Now!</a>
-        </div>
-        <div class="social-icons">
-          <a href="https://github.com/hamidAchaou"
-            ><i class="bx bxl-github"></i
-          ></a>
-          <a href="https://www.linkedin.com/in/hamid-achaou-093682253/"
-            ><i class="bx bxl-linkedin"></i
-          ></a>
-          <a href="https://www.instagram.com/achaouh/"
-            ><i class="bx bxl-instagram"></i
-          ></a>
-        </div>
-      </div>
-      <div class="home-image">
-        <div class="img-box">
-          <img src="./assets/images/4-removebg-preview-2.png" alt="" />
-        </div>
-        <!-- <div class="liquid-shape">
-                <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                    width="100%" id="blobSvg">
-                    <path fill="#12f7ff">
-                        <animate attributeName="d" dur="20000ms" repeatCount="indefinite"
-                            values="M400,289.5Q386,329,366.5,373.5Q347,418,298.5,436Q250,454,211,419.5Q172,385,141.5,357.5Q111,330,62,290Q13,250,43,199Q73,148,112.5,114.5Q152,81,201,55Q250,29,296.5,58.5Q343,88,396,111.5Q449,135,431.5,192.5Q414,250,400,289.5Z;
-                        
-                        M447.5,300.5Q424,351,389.5,391Q355,431,302.5,462.5Q250,494,192.5,471.5Q135,449,100,403Q65,357,59.5,303.5Q54,250,76.5,206.5Q99,163,130,129.5Q161,96,205.5,85Q250,74,308,61.5Q366,49,415,87.5Q464,126,467.5,188Q471,250,447.5,300.5Z;
-    
-                        M436.5,306Q443,362,403.5,405Q364,448,307,442.5Q250,437,191.5,445Q133,453,110.5,398Q88,343,86,296.5Q84,250,84.5,202.5Q85,155,115,112Q145,69,197.5,61Q250,53,300.5,63.5Q351,74,366.5,124Q382,174,406,212Q430,250,436.5,306Z;
-    
-                        M448.15498,300.93262Q426.78438,351.86524,383.73721,379.66309Q340.69004,407.46094,295.34502,430.33828Q250,453.21562,202.1415,434.86524Q154.28301,416.51485,108.97979,386.85176Q63.67656,357.18867,70.79785,303.59434Q77.91914,250,93.62129,209.59434Q109.32344,169.18867,141.35039,142.91103Q173.37734,116.63339,211.68867,89.37734Q250,62.12129,299.99326,69.58086Q349.98652,77.04043,408.55927,100.69004Q467.13202,124.33965,468.3288,187.16983Q469.52558,250,448.15498,300.93262Z;
-    
-                        M441.69096,291.29378Q393.99886,332.58756,383.51469,398.44182Q373.03052,464.29607,311.51526,455.73617Q250,447.17627,199.08813,436.94124Q148.17627,426.70622,130.35368,378.2644Q112.53109,329.82259,59.83785,289.91129Q7.1446,250,50.79264,205.1322Q94.44067,160.2644,131.29378,134.24971Q168.14689,108.23502,209.07345,90.45593Q250,72.67684,301.94124,70.95593Q353.88249,69.23502,381.3079,113.61808Q408.73331,158.00114,449.05818,204.00057Q489.38306,250,441.69096,291.29378Z;
-    
-                        M428.40137,287.33238Q379.37742,324.66477,354.68301,356.56043Q330.00575,388.4561,296.5,425.20356Q263.01194,461.95103,217.75258,449.45103Q172.49323,436.95103,130.5,409.30575Q88.53091,381.63599,67.72088,336.31799Q46.91084,291,72.0545,247.57663Q97.19816,204.15325,125.90897,166.47256Q154.61977,128.79187,199.128,107.30356Q243.63622,85.81525,291.76811,84.17001Q339.9,82.52478,365.63622,126.19509Q391.37244,169.8654,427.71268,209.9327Q464.05291,250,428.40137,287.33238Z;
-    
-                        M400,289.5Q386,329,366.5,373.5Q347,418,298.5,436Q250,454,211,419.5Q172,385,141.5,357.5Q111,330,62,290Q13,250,43,199Q73,148,112.5,114.5Q152,81,201,55Q250,29,296.5,58.5Q343,88,396,111.5Q449,135,431.5,192.5Q414,250,400,289.5Z"></animate>
-                    </path>
-                </svg>
-            </div> -->
-      </div>
-    </section>
-    <!-- ===================== end home section ==================== -->
-    <!-- ===================== about section ==================== -->
-    <section id="about" class="about">
-      <div class="img-about">
-        <img src="./assets/images/21D-removebg-preview.webp" alt="Hamido" />
-        <div class="info-about1">
-          <span>3+</span>
-          <p>Years of experience</p>
-        </div>
-        <div class="info-about2">
-          <span>12+</span>
-          <p>Projects completed</p>
-        </div>
-        <div class="info-about3">
-          <span>12+</span>
-          <p>Happy clients</p>
-        </div>
-      </div>
-      <div class="about-content">
-        <span>Let me introduce myself</span>
-        <h2>About Me</h2>
-        <p>
-          I am a passionate and dedicated Full Stack Developer based in Morocco,
-          with a strong background in both frontend and backend development. I
-          have a certificate in web development and over 2 years of professional
-          experience in building web applications. My journey into web
-          development started with a curiosity to create digital experiences
-          that are both functional and aesthetically pleasing.
-        </p>
-        <p>
-          Over the years, I have honed my skills in various technologies such as
-          PHP, Laravel, JavaScript, React, and more. I am proficient in
-          designing responsive and intuitive user interfaces and implementing
-          complex backend logic to support these interfaces.
-        </p>
-      </div>
-    </section>
-    <!-- ===================== Service section ==================== -->
-    <section class="services" id="services">
-      <div class="main-text">
-        <span>What We Offer</span>
-        <h2>Our Services</h2>
-      </div>
 
-      <div class="section-services scroll-bottom">
-        <div class="service-box">
-          <i class="bx bxs-layer service-icon"></i>
-          <h3>Frontend Development</h3>
-          <p>
-            Create responsive and user-friendly interfaces with cutting-edge
-            technologies. I specialize in crafting seamless experiences that
-            engage and delight users.
-          </p>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <main id="main-content">
+    <!-- Cinematic hero -->
+    <section id="home" class="container hero" aria-labelledby="hero-heading">
+      <div class="hero-content">
+        <p class="hero-eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> Independent developer <span class="eyebrow-dot" aria-hidden="true">·</span> Morocco & remote</p>
+        <div class="hero-badge">
+          <span class="status-orb" aria-hidden="true"></span>
+          Available for freelance projects & full-time roles
         </div>
-        <div class="service-box">
-          <i class="bx bx-desktop service-icon"></i>
-          <h3>Backend Development</h3>
-          <p>
-            Build robust server-side applications and APIs that power your web
-            and mobile apps. Our solutions are scalable, secure, and tailored to
-            meet your specific business needs.
-          </p>
+        <h1 id="hero-heading">
+          I turn bold ideas<br />into <span class="gradient-text">digital reality.</span>
+        </h1>
+        <div class="typed-wrapper">
+          <span class="typed-prefix">I build </span>
+          <span class="typed-text" id="typedElement" aria-live="off">web experiences</span>
+          <span class="typing-caret" aria-hidden="true"></span>
         </div>
-        <div class="service-box">
-          <i class="bx bxl-wordpress service-icon"></i>
-          <h3>WordPress Development</h3>
-          <p>
-            Customize and extend WordPress to create powerful websites and web
-            applications. From theme development to plugin customization, we
-            provide solutions that drive your business forward.
-          </p>
+        <p class="hero-desc">
+          I'm Hamid Achaou, a full-stack developer creating polished web applications, SaaS dashboards, and e-commerce experiences with Laravel, React, Symfony, and WordPress.
+        </p>
+        <div class="hero-proof" aria-label="Core strengths">
+          <span><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Full-stack products</span>
+          <span><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Performance-minded</span>
+          <span><i class="fa-solid fa-code" aria-hidden="true"></i> Clean, maintainable code</span>
+        </div>
+        <div class="btn-box hero-actions">
+          <a href="#projects" class="btn"><i class="fas fa-arrow-down" aria-hidden="true"></i> Explore my work</a>
+          <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane" aria-hidden="true"></i> Start a conversation</a>
+          <a href="assets/documents/Hamid-Achaou-CV.pdf" id="downloadCvBtn" class="cv-link" download="Hamid-Achaou-CV.pdf" aria-label="Download Hamid Achaou CV as PDF"><i class="fas fa-file-arrow-down" aria-hidden="true"></i> Download CV</a>
+        </div>
+        <div class="hero-bottomline">
+          <div class="social-icons hero-socials" aria-label="Social profiles">
+            <a href="https://github.com/hamidAchaou" target="_blank" rel="noopener noreferrer" class="hero-social-link" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/hamid-achaou-093682253/" target="_blank" rel="noopener noreferrer" class="hero-social-link" aria-label="LinkedIn profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+            <a href="mailto:hamidachaou379@gmail.com" class="hero-social-link" aria-label="Email Hamid"><i class="fa-regular fa-envelope" aria-hidden="true"></i></a>
+          </div>
+          <span class="hero-location"><span class="location-ping" aria-hidden="true"></span> Open to opportunities worldwide</span>
         </div>
       </div>
+      <div class="hero-image-wrap" aria-label="Developer portrait and technology focus">
+        <div class="hero-image-glow" aria-hidden="true"></div>
+        <div class="hero-image-frame">
+          <div class="frame-topline"><span>HA / PORTFOLIO</span><span>2026</span></div>
+          <div class="hero-image">
+            <img src="./assets/images/me5.png" alt="Portrait of Hamid Achaou" width="520" height="620" fetchpriority="high" decoding="async" />
+          </div>
+          <div class="frame-caption"><span class="caption-mark" aria-hidden="true">✳</span><div><strong>Thoughtful by design.</strong><span>Engineered to make an impact.</span></div></div>
+        </div>
+        <div class="floating-tech floating-tech-top" aria-hidden="true"><i class="fa-brands fa-laravel"></i><span>Laravel</span></div>
+        <div class="floating-tech floating-tech-bottom" aria-hidden="true"><i class="fa-brands fa-react"></i><span>React</span></div>
+        <span class="hero-index" aria-hidden="true">01 <span></span> 05</span>
+      </div>
+      <a class="scroll-cue" href="#services"><span class="scroll-cue-line" aria-hidden="true"></span> Scroll to explore</a>
     </section>
-    <!-- ===================== skills section ==================== -->
-    <section class="skills" id="skills">
-      <div class="main-text">
-        <span>Technical and Professional</span>
-        <h2>My Skills</h2>
+
+    <!-- Services Section -->
+    <section id="services" class="container" aria-labelledby="services-heading">
+      <div class="section-title">
+        <span>What I Offer</span>
+        <h2 id="services-heading">Dev Services</h2>
       </div>
-      <div class="skill-main">
-        <div class="skill-left">
-          <h3>Technical Skills</h3>
-          <div class="skill-bar">
-            <div class="info">
-              <p>HTML &amp; CSS</p>
-              <p>80%</p>
-            </div>
-            <div class="bar">
-              <span class="html"></span>
-            </div>
-          </div>
-          <div class="skill-bar">
-            <div class="info">
-              <p>PHP</p>
-              <p>85%</p>
-            </div>
-            <div class="bar">
-              <span class="php"></span>
-            </div>
-          </div>
-          <div class="skill-bar">
-            <div class="info">
-              <p>Laravel</p>
-              <p>85%</p>
-            </div>
-            <div class="bar">
-              <span class="laravel"></span>
-            </div>
-          </div>
-          <div class="skill-bar">
-            <div class="info">
-              <p>Symfony</p>
-              <p>80%</p>
-            </div>
-            <div class="bar">
-              <span class="symfony"></span>
-            </div>
-          </div>
-          
-          <div class="skill-bar">
-            <div class="info">
-              <p>JavaScript</p>
-              <p>80%</p>
-            </div>
-            <div class="bar">
-              <span class="javascript"></span>
-            </div>
-          </div>
-          <div class="skill-bar">
-            <div class="info">
-              <p>React</p>
-              <p>75%</p>
-            </div>
-            <div class="bar">
-              <span class="react"></span>
-            </div>
-          </div>
-        </div>
-        <div class="skill-right">
-          <h3>Professional Skills</h3>
-          <div class="professional">
-            <div class="box">
-              <div class="circle" data-dots="80" data-percent="90"></div>
-              <div class="text">
-                <big>90%</big>
-                <small>Team Collaboration</small>
-              </div>
-            </div>
-            <div class="box">
-              <div class="circle" data-dots="80" data-percent="85"></div>
-              <div class="text">
-                <big>85%</big>
-                <small>Project Management</small>
-              </div>
-            </div>
-            <div class="box">
-              <div class="circle" data-dots="80" data-percent="80"></div>
-              <div class="text">
-                <big>80%</big>
-                <small>Communication</small>
-              </div>
-            </div>
-            <div class="box">
-              <div class="circle" data-dots="80" data-percent="85"></div>
-              <div class="text">
-                <big>85%</big>
-                <small>Problem Solving</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ===================== Portfolio dection ==================== -->
-    <section class="portfolio" id="portfolio">
-      <div class="main-text">
-        <span>What I will do for you</span>
-        <h2>Latest Projects</h2>
-      </div>
-      <div class="container">
-        <div class="filter-buttons">
-          <button class="btn" data-filter="all">All</button>
-          <button class="btn" data-filter="laravel">Laravel</button>
-          <button class="btn" data-filter="react">React</button>
-          <button class="btn" data-filter="wordpress">WordPress</button>
+      <div class="services-grid">
+        <div class="service-item">
+          <i class="fas fa-code service-icon" aria-hidden="true"></i>
+          <h3>Full Stack Apps</h3>
+          <p>Robust enterprise applications built with React, Laravel, and Symfony, featuring role authentication, API development, and secure payments.</p>
         </div>
 
-        <div class="portfolio-gallery">
-          <!-- Projects will be inserted here dynamically -->
-          <!-- Example project item -->
-          <!-- <div class="portfolio-item" data-category="laravel">
-                    <img src="path/to/project-image.jpg" alt="Project Title">
-                    <div class="overlay">
-                        <h3>Project Title</h3>
-                        <p>Description of the project goes here.</p>
-                        <button class="btn">View Details</button>
-                    </div>
-                </div> -->
+        <div class="service-item">
+          <i class="fas fa-cart-shopping service-icon" aria-hidden="true"></i>
+          <h3>E‑commerce Solutions</h3>
+          <p>Custom online stores with Stripe gateway integrations, role-based admin panels, inventory management, and smooth cart workflows.</p>
+        </div>
+
+        <div class="service-item">
+          <i class="fas fa-chart-line service-icon" aria-hidden="true"></i>
+          <h3>SaaS & Dashboards</h3>
+          <p>Interactive business intelligence and task management dashboards powered by React, FastAPI, and dynamic data visualization.</p>
+        </div>
+
+        <div class="service-item">
+          <i class="fab fa-wordpress service-icon" aria-hidden="true"></i>
+          <h3>WordPress & CMS</h3>
+          <p>Tailored dynamic websites, custom themes, and business-focused CMS platforms engineered for SEO, speed, and easy content editing.</p>
+        </div>
+
+        <div class="service-item">
+          <i class="fas fa-bug service-icon" aria-hidden="true"></i>
+          <h3>Bug Fix & Optimization</h3>
+          <p>SQL query optimization, legacy code refactoring, performance tuning, and continuous feature integration in live production systems.</p>
         </div>
       </div>
+    </section>
 
-      <!-- Modal for project details -->
-      <div id="projectModal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <div class="modal-body">
-            <div class="modal-image">
-              <img id="modalImage" src="" alt="">
+    <!-- Tech Arsenal / Skills -->
+    <section id="skills" class="container">
+      <div class="section-title">
+        <span>Tech Arsenal</span>
+        <h2>Core Skills</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <i class="fab fa-laravel"></i>
+          <h4>Laravel</h4>
+          <p>85%</p>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-symfony"></i>
+          <h4>Symfony</h4>
+          <p>80%</p>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-react"></i>
+          <h4>React.js</h4>
+          <p>80%</p>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-wordpress"></i>
+          <h4>WordPress</h4>
+          <p>85%</p>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-database"></i>
+          <h4>MySQL</h4>
+          <p>85%</p>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-php"></i>
+          <h4>PHP</h4>
+          <p>90%</p>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-js"></i>
+          <h4>JavaScript</h4>
+          <p>85%</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container">
+      <div class="section-title">
+        <span>Real Production Experience</span>
+        <h2>Featured Projects</h2>
+      </div>
+      <div class="filter-buttons" id="filterGroup" role="group" aria-label="Filter projects by technology">
+        <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-btn" type="button" data-filter="laravel" aria-pressed="false">Laravel</button>
+        <button class="filter-btn" type="button" data-filter="react" aria-pressed="false">React</button>
+        <button class="filter-btn" type="button" data-filter="web" aria-pressed="false">Web & CMS</button>
+      </div>
+      <div class="projects-grid" id="projectsContainer" aria-live="polite" aria-busy="true"></div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+      <div class="section-title">
+        <span>Get In Touch</span>
+        <h2>Let's Work Together</h2>
+      </div>
+
+      <div class="contact-wrapper">
+        <!-- Left Column: Professional Info & Availability Status -->
+        <div class="contact-info-card">
+          <div>
+            <span class="availability-badge">
+              <span class="pulse-dot"></span> Available for Opportunities
+            </span>
+            <h3>Let's build something extraordinary.</h3>
+            <p>Whether you're an HR manager looking for a full-stack software engineer or a client with a new SaaS or web project, my inbox is open.</p>
+          </div>
+
+          <div class="contact-details-list">
+            <div class="contact-detail-item">
+              <div class="contact-icon-box">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <span class="contact-label">Email Me</span>
+                <a href="mailto:hamidachaou379@gmail.com" class="contact-value">hamidachaou379@gmail.com</a>
+              </div>
             </div>
-            <div class="modal-details">
-              <h2 id="modalTitle"></h2>
-              <p id="modalDescription"></p>
-              <div id="modalTechnologies"></div>
-              <div id="modalLinks">
-                <a id="modalGithub" href="" target="_blank" class="btn-link github-link">
-                  <i class="fab fa-github"></i> GitHub
-                </a>
-                <a id="modalReport" href="" target="_blank" class="btn-link report-link">
-                  <i class="fas fa-file-alt"></i> View Report
-              </a>
-                <a id="modalLive" href="" target="_blank" class="btn-link demo-link">
-                  <i class="fas fa-external-link-alt"></i> Live Demo
-                </a>
+
+            <div class="contact-detail-item">
+              <div class="contact-icon-box">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div>
+                <span class="contact-label">Call / WhatsApp</span>
+                <a href="tel:+212643320632" class="contact-value">+212 643 320 632</a>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      
+
+        <!-- Right Column: Modern Interactive Form -->
+        <form class="contact-form-card" id="contactForm" action="https://formspree.io/f/xdknkzvy" method="POST">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" maxlength="120" placeholder="John Doe" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" maxlength="254" placeholder="john@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message / Project Details</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell me about your project requirements or job opening..." required></textarea>
+          </div>
+
+          <p id="formStatus" class="status-message" role="status" aria-live="polite"></p>
+          <button type="submit" id="submitBtn" class="btn contact-submit">
+            <span>Send Message</span> <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
       </div>
     </section>
-    <!-- ===================== contact dection ==================== -->
-    <section class="contact" id="contact">
-      <div class="main-text">
-        <span>Ask me question</span>
-        <h2>Contact Me</h2>
-      </div>
-      <form
-        action="https://formspree.io/f/xdknkzvy"
-        method="POST"
-        id="contactForm"
-      >
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <input type="text" name="address" placeholder="Your Address" />
-        <input type="tel" name="phone" placeholder="Phone Number" />
-        <textarea
-          name="message"
-          id="message"
-          cols="30"
-          rows="10"
-          placeholder="Your Message"
-          required
-        ></textarea>
-        <div class="btn-box formBtn">
-          <button type="submit" class="btn">Send Message</button>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+      <div class="container footer-container">
+        
+        <div class="footer-top">
+          <div>
+            <a href="#home" class="logo footer-logo">&lt;Hamid /&gt;</a>
+            <p class="footer-description">
+              Full Stack Software Developer crafting robust web applications, SaaS dashboards, and WordPress solutions.
+            </p>
+          </div>
+
+          <nav class="footer-links" aria-label="Footer navigation">
+            <a href="#home" class="footer-link">Home</a>
+            <a href="#services" class="footer-link">Services</a>
+            <a href="#skills" class="footer-link">Skills</a>
+            <a href="#projects" class="footer-link">Projects</a>
+            <a href="#contact" class="footer-link">Contact</a>
+          </nav>
         </div>
-      </form>
-    </section>
-    <!-- ===================== footer website ==================== -->
-    <footer>
-      <p>Copyright &copy; 2024 By Hamid AChaou || All Right Reserved</p>
-      <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
+
+        <div class="footer-divider" aria-hidden="true"></div>
+
+        <div class="footer-bottom">
+          <p class="footer-copyright">
+            © <span id="currentYear">2026</span> Hamid Achaou. All rights reserved. Built with Laravel, React, Symfony & WordPress.
+          </p>
+
+          <div class="footer-bottom-actions">
+            <div class="footer-socials">
+              <a href="https://github.com/hamidAchaou" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="footer-social-link"><i class="fab fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/hamid-achaou-093682253/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="footer-social-link"><i class="fab fa-linkedin"></i></a>
+            </div>
+
+            <a href="#home" aria-label="Scroll back to top" class="back-to-top">
+              <i class="fas fa-chevron-up" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
     </footer>
-    <!-- js -->
-    <script src="./assets/js/mixitup.min.js"></script>
-    <script src="./assets/js/app.js"></script>
+
+    <!-- Project Detail Modal -->
+    <div id="projectModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="modalTitle">Project Details</h3>
+          <button class="close" type="button" aria-label="Close project details">&times;</button>
+        </div>
+        <div class="modal-body" id="modalBodyContent"></div>
+      </div>
+    </div>
+    <script src="./assets/js/app.js" defer></script>
   </body>
 </html>
