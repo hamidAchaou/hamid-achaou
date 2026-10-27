@@ -5,13 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Hamid Achaou - Full Stack Developer | Modern web applications with Laravel, React, Symfony"
+      content="Hamid Achaou - Full Stack Software Developer | Modern web applications, APIs, and CMS solutions built with Laravel, React, Symfony, and WordPress."
     />
     <meta
       name="keywords"
-      content="Hamid Achaou, Full Stack Developer, Laravel, React, Symfony, Portfolio"
+      content="Hamid Achaou, Full Stack Developer, Laravel, React, Symfony, WordPress, Web Developer Morocco, PHP Developer"
     />
-    <title>Hamid Achaou | Full Stack Developer</title>
+    <title>Hamid Achaou | Full Stack Software Developer</title>
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://hamidachaou.github.io/" />
+    <meta
+      property="og:title"
+      content="Hamid Achaou | Full Stack Software Developer"
+    />
+    <meta
+      property="og:description"
+      content="Explore the portfolio of Hamid Achaou, a Full Stack Software Developer specializing in Laravel, React, Symfony, and WordPress applications."
+    />
+    <meta
+      property="og:image"
+      content="https://hamidachaou.github.io/assets/images/preview-banner.png"
+    />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://hamidachaou.github.io/" />
+    <meta
+      name="twitter:title"
+      content="Hamid Achaou | Full Stack Software Developer"
+    />
+    <meta
+      name="twitter:description"
+      content="Explore the portfolio of Hamid Achaou, a Full Stack Software Developer specializing in Laravel, React, Symfony, and WordPress applications."
+    />
+    <meta
+      name="twitter:image"
+      content="https://hamidachaou.github.io/assets/images/preview-banner.png"
+    />
 
     <!-- Font Awesome 6 -->
     <link
@@ -97,7 +129,7 @@
         justify-content: space-between;
         align-items: center;
         backdrop-filter: blur(12px);
-        background: rgba(10, 10, 15, 0.7);
+        background: rgba(10, 10, 15, 0.75);
         z-index: 1000;
         border-bottom: 1px solid rgba(99, 102, 241, 0.2);
         transition: all 0.3s ease;
@@ -110,6 +142,7 @@
         background-clip: text;
         color: transparent;
         font-family: "Space Grotesk", monospace;
+        text-decoration: none;
       }
       .navlist {
         display: flex;
@@ -168,7 +201,7 @@
         box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.5);
       }
 
-      /* Sections global */
+      /* Global Sections */
       section {
         padding: 6rem 5% 4rem;
       }
@@ -197,17 +230,18 @@
         font-family: "Space Grotesk", sans-serif;
       }
 
-      /* Hero */
+      /* Hero Section */
       .hero {
         min-height: 100vh;
         display: flex;
         align-items: center;
         gap: 2rem;
         flex-wrap: wrap;
-        padding-top: 5rem;
+        padding-top: 6rem;
       }
       .hero-content {
         flex: 1;
+        min-width: 300px;
       }
       .hero-badge {
         background: rgba(99, 102, 241, 0.2);
@@ -233,6 +267,7 @@
       .typed-wrapper {
         margin: 1rem 0;
         font-size: 1.7rem;
+        min-height: 2.5rem;
       }
       .typed-text {
         color: #c084fc;
@@ -246,7 +281,7 @@
       }
       .hero-info {
         display: flex;
-        gap: 2rem;
+        gap: 1.5rem;
         margin: 2rem 0;
         flex-wrap: wrap;
       }
@@ -256,42 +291,82 @@
         padding: 0.6rem 1.2rem;
         border-radius: 30px;
         border-left: 2px solid #818cf8;
+        font-size: 0.9rem;
       }
       .hero-image {
         flex: 0.8;
-        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       .hero-image img {
         width: 100%;
         max-width: 380px;
+        border-radius: 2rem;
         filter: drop-shadow(0 0 30px rgba(99, 102, 241, 0.3));
-        animation: float 5s infinite ease;
+        animation: float 5s infinite ease-in-out;
       }
       @keyframes float {
-        0% {
+        0%,
+        100% {
           transform: translateY(0px);
         }
         50% {
           transform: translateY(-15px);
         }
-        100% {
-          transform: translateY(0px);
-        }
       }
 
-      /* Skills grid */
+      /* Services Section */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+      .service-item {
+        background: rgba(15, 15, 25, 0.6);
+        backdrop-filter: blur(8px);
+        border-radius: 1.8rem;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        border: 1px solid #2d2d3a;
+      }
+      .service-item:hover {
+        border-color: #7c3aed;
+        transform: translateY(-5px);
+        box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.5);
+      }
+      .service-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        background: linear-gradient(145deg, #f472b6, #818cf8);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .service-item h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        color: #ffffff;
+      }
+      .service-item p {
+        color: #9ca3af;
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      /* Skills Grid */
       .skills-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
         gap: 1.5rem;
         margin-top: 2rem;
       }
       .skill-card {
         background: rgba(20, 20, 30, 0.6);
         backdrop-filter: blur(8px);
-        padding: 1.2rem;
+        padding: 1.5rem 1rem;
         text-align: center;
-        border-radius: 2rem;
+        border-radius: 1.5rem;
         border: 1px solid rgba(139, 92, 246, 0.2);
         transition: all 0.3s;
       }
@@ -310,45 +385,18 @@
         background: rgba(99, 102, 241, 0.1);
       }
 
-      /* Services */
-      .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
-      }
-      .service-item {
-        background: rgba(15, 15, 25, 0.6);
-        backdrop-filter: blur(8px);
-        border-radius: 2rem;
-        padding: 2rem;
-        transition: 0.25s ease;
-        border: 1px solid #2d2d3a;
-      }
-      .service-item:hover {
-        border-color: #7c3aed;
-        transform: scale(1.02);
-        box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.5);
-      }
-      .service-icon {
-        font-size: 2.5rem;
-        background: linear-gradient(145deg, #f472b6, #818cf8);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-
       /* Projects Gallery */
       .filter-buttons {
         display: flex;
         justify-content: center;
-        gap: 1rem;
+        gap: 0.8rem;
         margin-bottom: 2.5rem;
         flex-wrap: wrap;
       }
       .filter-btn {
         background: #1e1e2c;
-        border: none;
-        padding: 0.5rem 1.5rem;
+        border: 1px solid #2e2e42;
+        padding: 0.5rem 1.4rem;
         border-radius: 40px;
         color: #ccc;
         font-weight: 500;
@@ -359,53 +407,171 @@
       .filter-btn:hover {
         background: #4f46e5;
         color: white;
-        box-shadow: 0 0 12px #4f46e5;
+        border-color: #6366f1;
+        box-shadow: 0 0 12px rgba(79, 70, 229, 0.5);
       }
       .projects-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
         gap: 2rem;
       }
       .project-card {
         background: rgba(18, 18, 28, 0.7);
-        border-radius: 1.8rem;
+        border-radius: 1.5rem;
         overflow: hidden;
         backdrop-filter: blur(4px);
-        transition: all 0.3s;
+        transition: all 0.3s ease;
         border: 1px solid #2a2a38;
         cursor: pointer;
       }
       .project-card:hover {
         transform: translateY(-8px);
         border-color: #8b5cf6;
+        box-shadow: 0 15px 30px -10px rgba(124, 58, 237, 0.3);
       }
-      .project-img {
-        height: 200px;
-        background: linear-gradient(135deg, #2d2a4a, #1e1b3a);
+
+      /* Contact Section Modern Styling */
+      .contact-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2.5rem;
+        align-items: stretch;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .contact-info-card,
+      .contact-form-card {
+        background: rgba(18, 18, 28, 0.65);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(139, 92, 246, 0.25);
+        border-radius: 1.8rem;
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.4);
+      }
+      .availability-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(16, 185, 129, 0.15);
+        color: #34d399;
+        padding: 0.35rem 0.9rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        margin-bottom: 1.2rem;
+        border: 1px solid rgba(52, 211, 153, 0.3);
+      }
+      .pulse-dot {
+        width: 8px;
+        height: 8px;
+        background: #34d399;
+        border-radius: 50%;
+        display: inline-block;
+        box-shadow: 0 0 10px #34d399;
+        animation: pulseAnimation 2s infinite;
+      }
+      @keyframes pulseAnimation {
+        0% {
+          transform: scale(0.95);
+          box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+        }
+        70% {
+          transform: scale(1);
+          box-shadow: 0 0 0 8px rgba(52, 211, 153, 0);
+        }
+        100% {
+          transform: scale(0.95);
+          box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+        }
+      }
+      .contact-info-card h3 {
+        color: white;
+        font-size: 1.6rem;
+        margin-bottom: 0.8rem;
+        font-family: "Space Grotesk", sans-serif;
+      }
+      .contact-info-card p {
+        color: #9ca3af;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+      .contact-details-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        margin-top: 2rem;
+      }
+      .contact-detail-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .contact-icon-box {
+        width: 44px;
+        height: 44px;
+        background: rgba(99, 102, 241, 0.15);
+        border-radius: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 3.5rem;
+        color: #a78bfa;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+        border: 1px solid rgba(167, 139, 250, 0.2);
       }
-      .project-info {
-        padding: 1.5rem;
+      .contact-label {
+        display: block;
+        font-size: 0.75rem;
+        color: #6c6f8e;
+        text-transform: uppercase;
+        letter-spacing: 1px;
       }
-      .project-info h3 {
-        font-size: 1.4rem;
-        margin-bottom: 0.3rem;
+      .contact-value {
+        color: #e2e8f0;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: 0.2s;
       }
-      .project-tags {
+      .contact-value:hover {
+        color: #a78bfa;
+      }
+      .contact-form-card {
+        gap: 1.2rem;
+      }
+      .form-group {
         display: flex;
-        gap: 0.5rem;
-        margin: 0.8rem 0;
-        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 0.4rem;
       }
-      .tag {
-        background: #2d2a4a;
-        font-size: 0.7rem;
-        padding: 0.2rem 0.8rem;
-        border-radius: 30px;
-        color: #c4b5fd;
+      .form-group label {
+        font-size: 0.85rem;
+        color: #cbd5e6;
+        font-weight: 500;
+      }
+      .form-group input,
+      .form-group textarea {
+        background: #14141f;
+        border: 1px solid #2e2e42;
+        padding: 0.9rem 1.2rem;
+        border-radius: 1rem;
+        color: white;
+        font-family: inherit;
+        outline: none;
+        transition: all 0.3s ease;
+        font-size: 0.95rem;
+      }
+      .form-group input:focus,
+      .form-group textarea:focus {
+        border-color: #8b5cf6;
+        box-shadow: 0 0 12px rgba(139, 92, 246, 0.3);
+        background: #1a1a29;
+      }
+      .form-group textarea {
+        resize: vertical;
       }
 
       /* Modal */
@@ -416,20 +582,21 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.8);
+        background: rgba(0, 0, 0, 0.85);
         backdrop-filter: blur(12px);
         z-index: 1100;
         align-items: center;
         justify-content: center;
+        padding: 1rem;
       }
       .modal-content {
         background: #0f0f1a;
         max-width: 850px;
-        width: 90%;
-        border-radius: 2rem;
+        width: 100%;
+        border-radius: 1.8rem;
         border: 1px solid #4f46e5;
         overflow: hidden;
-        animation: modalFade 0.3s;
+        animation: modalFade 0.3s ease-out;
       }
       @keyframes modalFade {
         from {
@@ -444,13 +611,19 @@
       .modal-header {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 1rem 1.5rem;
         background: #1a1a2a;
+        border-bottom: 1px solid #2d2d3a;
       }
       .close {
-        font-size: 2rem;
+        font-size: 1.8rem;
         cursor: pointer;
         color: #ccc;
+        transition: 0.2s;
+      }
+      .close:hover {
+        color: #ef4444;
       }
       .modal-body {
         display: flex;
@@ -458,43 +631,8 @@
         padding: 1.5rem;
         gap: 1.5rem;
       }
-      .modal-body img {
-        width: 100%;
-        max-width: 280px;
-        border-radius: 1rem;
-      }
 
-      /* Contact */
-      .contact-form {
-        max-width: 700px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-      }
-      .contact-form input,
-      .contact-form textarea {
-        background: #14141f;
-        border: 1px solid #2e2e42;
-        padding: 1rem;
-        border-radius: 1.5rem;
-        color: white;
-        font-family: inherit;
-        outline: none;
-        transition: 0.2s;
-      }
-      .contact-form input:focus,
-      .contact-form textarea:focus {
-        border-color: #8b5cf6;
-        box-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
-      }
-      footer {
-        text-align: center;
-        padding: 2rem;
-        border-top: 1px solid #1f1f2e;
-        color: #6c6f8e;
-      }
-
+      /* Mobile Navigation */
       @media (max-width: 850px) {
         .navlist {
           display: none;
@@ -503,67 +641,81 @@
           display: block;
         }
         .hero-content h1 {
-          font-size: 2.2rem;
+          font-size: 2.4rem;
         }
         section {
-          padding: 4rem 5%;
+          padding: 4.5rem 5% 3rem;
         }
       }
       .mobile-nav {
         position: fixed;
-        top: 70px;
+        top: 65px;
         left: 0;
         width: 100%;
-        background: #0c0c12e6;
+        background: rgba(12, 12, 18, 0.95);
         backdrop-filter: blur(20px);
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
+        gap: 1.5rem;
         padding: 2rem;
         z-index: 999;
         display: none;
+        border-bottom: 1px solid rgba(99, 102, 241, 0.2);
       }
       .mobile-nav.active {
         display: flex;
+      }
+      .mobile-nav a {
+        color: #e2e8f0;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 500;
       }
     </style>
   </head>
   <body>
     <div class="bg-glow"></div>
+
     <header>
-      <div class="logo">&lt;Hamid /&gt;</div>
+      <a href="#home" class="logo">&lt;Hamid /&gt;</a>
       <ul class="navlist">
-        <li><a href="#home">Home</a></li>
+        <li><a href="#home" class="active">Home</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div id="menu-icon"><i class="fas fa-bars"></i></div>
+      <div id="menu-icon" aria-label="Toggle navigation menu">
+        <i class="fas fa-bars"></i>
+      </div>
     </header>
+
     <div class="mobile-nav" id="mobileNav">
-      <a href="#home">Home</a><a href="#services">Services</a
-      ><a href="#skills">Skills</a><a href="#projects">Projects</a
-      ><a href="#contact">Contact</a>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </div>
 
     <!-- Hero Section -->
     <section id="home" class="container hero">
       <div class="hero-content">
         <div class="hero-badge">
-          <i class="fas fa-code"></i> Full Stack Developer
+          <i class="fas fa-code"></i> Full Stack Software Developer
         </div>
         <h1>
           Building <span class="gradient-text">business-ready</span><br />
           web applications
         </h1>
         <div class="typed-wrapper">
-          <span>Specialized in </span
-          ><span class="typed-text" id="typedElement"></span>
+          <span>Specialized in </span>
+          <span class="typed-text" id="typedElement"></span>
         </div>
         <p class="hero-desc">
-          React, Laravel, Symfony — I turn complex ideas into scalable,
-          high-performance web apps used by real businesses.
+          React, Laravel, Symfony, and WordPress — I engineer scalable,
+          high-performance web applications and digital tools tailored for
+          growing businesses.
         </p>
         <div class="hero-info">
           <div class="info-card">
@@ -575,14 +727,21 @@
         </div>
         <div class="btn-box" style="display: flex; gap: 1rem; flex-wrap: wrap">
           <a href="#projects" class="btn"
-            ><i class="fab fa-react"></i> View Work</a
+            ><i class="fas fa-laptop-code"></i> View Work</a
           >
           <a href="#contact" class="btn btn-outline"
             ><i class="fas fa-paper-plane"></i> Hire Me</a
           >
-          <a href="#" id="downloadCvBtn" class="btn btn-outline"
-            ><i class="fas fa-download"></i> Download CV</a
+          <a
+            href="assets/documents/Hamid-Achaou-CV.pdf"
+            id="downloadCvBtn"
+            class="btn btn-outline"
+            download="Hamid-Achaou-CV.pdf"
+            aria-label="Download Hamid Achaou CV as PDF"
           >
+            <i class="fas fa-download"></i>
+            Download CV
+          </a>
         </div>
         <div
           class="social-icons"
@@ -590,82 +749,85 @@
         >
           <a
             href="https://github.com/hamidAchaou"
+            target="_blank"
+            rel="noopener noreferrer"
             style="color: #cbd5e6; font-size: 1.6rem"
             ><i class="fab fa-github"></i
           ></a>
           <a
             href="https://www.linkedin.com/in/hamid-achaou-093682253/"
+            target="_blank"
+            rel="noopener noreferrer"
             style="color: #cbd5e6; font-size: 1.6rem"
             ><i class="fab fa-linkedin"></i
           ></a>
         </div>
       </div>
       <div class="hero-image">
-        <img src="./assets/images/me5.png" alt="Hamid Achaou" />
+        <img
+          src="./assets/images/me5.png"
+          alt="Hamid Achaou"
+          onerror="this.style.display='none'"
+        />
       </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="container" aria-labelledby="services-heading">
       <div class="section-title">
-        <span>What I offer</span>
+        <span>What I Offer</span>
         <h2 id="services-heading">Dev Services</h2>
       </div>
       <div class="services-grid">
-        <!-- Full Stack Applications -->
         <div class="service-item">
           <i class="fas fa-code service-icon" aria-hidden="true"></i>
           <h3>Full Stack Apps</h3>
           <p>
-            Robust applications built with React, Laravel, and Symfony,
-            featuring authentication, role management, and payment
-            integrations[cite: 1].
+            Robust enterprise applications built with React, Laravel, and
+            Symfony, featuring role authentication, API development, and secure
+            payments.
           </p>
         </div>
 
-        <!-- E-commerce Solutions -->
         <div class="service-item">
           <i class="fas fa-cart-shopping service-icon" aria-hidden="true"></i>
           <h3>E‑commerce Solutions</h3>
           <p>
-            Custom online stores with Stripe payment gateways, admin dashboards,
-            and inventory management[cite: 1].
+            Custom online stores with Stripe gateway integrations, role-based
+            admin panels, inventory management, and smooth cart workflows.
           </p>
         </div>
 
-        <!-- SaaS & Dashboards -->
         <div class="service-item">
           <i class="fas fa-chart-line service-icon" aria-hidden="true"></i>
           <h3>SaaS & Dashboards</h3>
           <p>
-            Interactive business intelligence and project management dashboards
-            built with React, FastAPI, and real-time analytics[cite: 1].
+            Interactive business intelligence and task management dashboards
+            powered by React, FastAPI, and dynamic data visualization.
           </p>
         </div>
 
-        <!-- WordPress & CMS Solutions (Added from CV) -->
         <div class="service-item">
           <i class="fab fa-wordpress service-icon" aria-hidden="true"></i>
           <h3>WordPress & CMS</h3>
           <p>
-            Tailored dynamic websites, custom layouts, and business-focused CMS
-            solutions designed for performance and ease of use[cite: 1].
+            Tailored dynamic websites, custom themes, and business-focused CMS
+            platforms engineered for SEO, speed, and easy content editing.
           </p>
         </div>
 
-        <!-- Bug Fixing & Optimization -->
         <div class="service-item">
           <i class="fas fa-bug service-icon" aria-hidden="true"></i>
           <h3>Bug Fix & Optimization</h3>
           <p>
-            SQL query tuning, performance refactoring, debugging, and adding new
-            features to production systems[cite: 1].
+            SQL query optimization, legacy code refactoring, performance tuning,
+            and continuous feature integration in live production systems.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Skills -->
+    <!-- Tech Arsenal / Skills -->
     <section id="skills" class="container">
       <div class="section-title">
         <span>Tech Arsenal</span>
@@ -688,6 +850,11 @@
           <p>80%</p>
         </div>
         <div class="skill-card">
+          <i class="fab fa-wordpress"></i>
+          <h4>WordPress</h4>
+          <p>85%</p>
+        </div>
+        <div class="skill-card">
           <i class="fas fa-database"></i>
           <h4>MySQL</h4>
           <p>85%</p>
@@ -705,70 +872,319 @@
       </div>
     </section>
 
-    <!-- Projects based on CV (Logidesk, Laravel ecomm, React dashboard) -->
+    <!-- Projects Section -->
     <section id="projects" class="container">
       <div class="section-title">
-        <span>real production experience</span>
+        <span>Real Production Experience</span>
         <h2>Featured Projects</h2>
       </div>
       <div class="filter-buttons" id="filterGroup">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="laravel">Laravel</button>
-        <button class="filter-btn" data-filter="symfony">Symfony</button>
         <button class="filter-btn" data-filter="react">React</button>
+        <button class="filter-btn" data-filter="web">Web & CMS</button>
       </div>
       <div class="projects-grid" id="projectsContainer"></div>
     </section>
 
-    <!-- Contact -->
+    <!-- Contact Section -->
     <section id="contact" class="container">
       <div class="section-title">
-        <span>Get in touch</span>
-        <h2>Let's work together</h2>
+        <span>Get In Touch</span>
+        <h2>Let's Work Together</h2>
       </div>
-      <form
-        class="contact-form"
-        id="contactForm"
-        action="https://formspree.io/f/xdknkzvy"
-        method="POST"
-      >
-        <input type="text" name="name" placeholder="Full name" required />
-        <input type="email" name="email" placeholder="Email address" required />
-        <textarea
-          name="message"
-          rows="5"
-          placeholder="Tell me about your project..."
-        ></textarea>
-        <button
-          type="submit"
-          class="btn"
-          style="width: fit-content; margin-top: 0.5rem"
+
+      <div class="contact-wrapper">
+        <!-- Left Column: Professional Info & Availability Status -->
+        <div class="contact-info-card">
+          <div>
+            <span class="availability-badge">
+              <span class="pulse-dot"></span> Available for Opportunities
+            </span>
+            <h3>Let's build something extraordinary.</h3>
+            <p>
+              Whether you're an HR manager looking for a full-stack software
+              engineer or a client with a new SaaS or web project, my inbox is
+              open.
+            </p>
+          </div>
+
+          <div class="contact-details-list">
+            <div class="contact-detail-item">
+              <div class="contact-icon-box">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <span class="contact-label">Email Me</span>
+                <a href="mailto:hamidachaou379@gmail.com" class="contact-value"
+                  >hamidachaou379@gmail.com</a
+                >
+              </div>
+            </div>
+
+            <div class="contact-detail-item">
+              <div class="contact-icon-box">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div>
+                <span class="contact-label">Call / WhatsApp</span>
+                <a href="tel:+212643320632" class="contact-value"
+                  >+212 643 320 632</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Modern Interactive Form -->
+        <form
+          class="contact-form-card"
+          id="contactForm"
+          action="https://formspree.io/f/xdknkzvy"
+          method="POST"
         >
-          Send Message <i class="fas fa-arrow-right"></i>
-        </button>
-      </form>
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="John Doe"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="john@example.com"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message / Project Details</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="Tell me about your project requirements or job opening..."
+              required
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            id="submitBtn"
+            class="btn"
+            style="
+              width: 100%;
+              justify-content: center;
+              margin-top: 0.5rem;
+              padding: 0.95rem;
+              font-size: 0.95rem;
+            "
+          >
+            <span>Send Message</span> <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
     </section>
 
-    <footer>
-      <p>
-        © 2025 Hamid Achaou — Full Stack Developer (Laravel • React • Symfony).
-        Built with modern magic.
-      </p>
-      <a href="#home" style="color: #a78bfa"
-        ><i class="fas fa-chevron-up"></i
-      ></a>
+    <!-- Footer Section -->
+    <footer
+      style="
+        background: rgba(10, 10, 15, 0.95);
+        border-top: 1px solid rgba(99, 102, 241, 0.2);
+        padding: 4rem 5% 2rem;
+        margin-top: 4rem;
+      "
+    >
+      <div
+        class="container"
+        style="
+          display: flex;
+          flex-direction: column;
+          gap: 2.5rem;
+          max-width: 1300px;
+          margin: 0 auto;
+        "
+      >
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+          "
+        >
+          <div>
+            <a
+              href="#home"
+              class="logo"
+              style="font-size: 1.6rem; text-decoration: none"
+              >&lt;Hamid /&gt;</a
+            >
+            <p
+              style="
+                color: #9ca3af;
+                font-size: 0.9rem;
+                margin-top: 0.5rem;
+                max-width: 400px;
+              "
+            >
+              Full Stack Software Developer crafting robust web applications,
+              SaaS dashboards, and WordPress solutions.
+            </p>
+          </div>
+
+          <nav
+            aria-label="Footer Navigation"
+            style="display: flex; gap: 2rem; flex-wrap: wrap"
+          >
+            <a
+              href="#home"
+              style="
+                color: #cbd5e6;
+                text-decoration: none;
+                font-size: 0.9rem;
+                transition: color 0.2s;
+              "
+              >Home</a
+            >
+            <a
+              href="#services"
+              style="
+                color: #cbd5e6;
+                text-decoration: none;
+                font-size: 0.9rem;
+                transition: color 0.2s;
+              "
+              >Services</a
+            >
+            <a
+              href="#skills"
+              style="
+                color: #cbd5e6;
+                text-decoration: none;
+                font-size: 0.9rem;
+                transition: color 0.2s;
+              "
+              >Skills</a
+            >
+            <a
+              href="#projects"
+              style="
+                color: #cbd5e6;
+                text-decoration: none;
+                font-size: 0.9rem;
+                transition: color 0.2s;
+              "
+              >Projects</a
+            >
+            <a
+              href="#contact"
+              style="
+                color: #cbd5e6;
+                text-decoration: none;
+                font-size: 0.9rem;
+                transition: color 0.2s;
+              "
+              >Contact</a
+            >
+          </nav>
+        </div>
+
+        <div
+          style="
+            height: 1px;
+            background: rgba(255, 255, 255, 0.08);
+            width: 100%;
+          "
+        ></div>
+
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+          "
+        >
+          <p style="color: #6c6f8e; font-size: 0.85rem">
+            © <span id="currentYear">2026</span> Hamid Achaou. All rights
+            reserved. Built with Laravel, React, Symfony & WordPress.
+          </p>
+
+          <div style="display: flex; align-items: center; gap: 1.5rem">
+            <div style="display: flex; gap: 1rem">
+              <a
+                href="https://github.com/hamidAchaou"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub Profile"
+                style="
+                  color: #9ca3af;
+                  font-size: 1.2rem;
+                  transition: color 0.2s;
+                "
+                ><i class="fab fa-github"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/hamid-achaou-093682253/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn Profile"
+                style="
+                  color: #9ca3af;
+                  font-size: 1.2rem;
+                  transition: color 0.2s;
+                "
+                ><i class="fab fa-linkedin"></i
+              ></a>
+            </div>
+
+            <a
+              href="#home"
+              aria-label="Scroll back to top"
+              style="
+                background: rgba(99, 102, 241, 0.15);
+                border: 1px solid rgba(167, 139, 250, 0.3);
+                color: #a78bfa;
+                width: 38px;
+                height: 38px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                transition: all 0.3s ease;
+              "
+            >
+              <i class="fas fa-chevron-up" style="font-size: 0.9rem"></i>
+            </a>
+          </div>
+        </div>
+      </div>
     </footer>
 
-    <div id="projectModal" class="modal">
+    <!-- Project Detail Modal -->
+    <div id="projectModal" class="modal" role="dialog" aria-modal="true">
       <div class="modal-content">
         <div class="modal-header">
-          <h3>Project Details</h3>
+          <h3 style="color: white; margin: 0">Project Details</h3>
           <span class="close">&times;</span>
         </div>
         <div class="modal-body" id="modalBodyContent"></div>
       </div>
     </div>
 
+    <!-- Script Application Logic -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         let projectsData = [];
@@ -776,14 +1192,13 @@
         const modal = document.getElementById("projectModal");
         const modalBodyContent = document.getElementById("modalBodyContent");
 
-        // 1. Fetch projects dynamically from data/projects.json
+        // 1. Dynamic Projects Loader
         async function loadProjects() {
           try {
             const response = await fetch("data/projects.json");
             if (!response.ok) throw new Error("Failed to load projects data.");
             const jsonData = await response.json();
 
-            // Handle both direct arrays or { projects: [...] } object structures
             projectsData = Array.isArray(jsonData)
               ? jsonData
               : jsonData.projects || [];
@@ -821,36 +1236,37 @@
             card.setAttribute("data-category", proj.category);
             card.addEventListener("click", () => openModal(proj.id));
 
-            // Join technologies array into a comma-separated string for display
             const techDisplay = Array.isArray(proj.technologies)
               ? proj.technologies.slice(0, 3).join(", ")
               : "";
 
             card.innerHTML = `
-        <div class="project-img" style="height: 160px; overflow: hidden; background: #1e1e2f;">
-          <img src="${escapeHtml(proj.image)}" alt="${escapeHtml(
+              <div class="project-img" style="height: 160px; overflow: hidden; background: #1e1e2f;">
+                <img src="${escapeHtml(proj.image)}" alt="${escapeHtml(
               proj.title
             )}" style="width:100%; height:100%; object-fit: cover;" onerror="this.src='https://via.placeholder.com/400x200?text=Project'">
-        </div>
-        <div class="project-info" style="padding: 1rem;">
-          <h3 style="color: white; margin-bottom: 0.5rem;">${escapeHtml(
-            proj.title
-          )}</h3>
-          <div class="project-tags" style="margin-bottom: 0.5rem;"><span class="tag" style="background: rgba(167,139,250,0.1); color: #a78bfa; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem;">${escapeHtml(
-            techDisplay
-          )}</span></div>
-          <p style="color: #b9c3d4; font-size:0.85rem; margin: 0;">${escapeHtml(
-            proj.description.substring(0, 90)
-          )}…</p>
-        </div>
-      `;
+              </div>
+              <div class="project-info" style="padding: 1.2rem;">
+                <h3 style="color: white; margin-bottom: 0.5rem; font-size: 1.15rem;">${escapeHtml(
+                  proj.title
+                )}</h3>
+                <div class="project-tags" style="margin-bottom: 0.5rem;">
+                  <span class="tag" style="background: rgba(167,139,250,0.15); color: #a78bfa; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem;">${escapeHtml(
+                    techDisplay
+                  )}</span>
+                </div>
+                <p style="color: #b9c3d4; font-size:0.85rem; margin: 0; line-height: 1.4;">${escapeHtml(
+                  proj.description.substring(0, 90)
+                )}…</p>
+              </div>
+            `;
             fragment.appendChild(card);
           });
 
           projectsContainer.appendChild(fragment);
         }
 
-        // 3. Modal Management using Project ID
+        // 3. Modal Management
         window.openModal = (id) => {
           const project = projectsData.find((p) => p.id === id);
           if (!project || !modalBodyContent || !modal) return;
@@ -863,7 +1279,7 @@
             project.image
           )}" alt="${escapeHtml(
             project.title
-          )}" style="width:100%; border-radius: 8px; object-fit: cover;">`;
+          )}" style="width:100%; border-radius: 12px; object-fit: cover;" onerror="this.src='https://via.placeholder.com/400x200?text=Project'">`;
 
           const techList = Array.isArray(project.technologies)
             ? project.technologies.join(", ")
@@ -872,30 +1288,32 @@
           const detailsDiv = document.createElement("div");
           detailsDiv.style.cssText = "flex:2;";
           detailsDiv.innerHTML = `
-      <h2 style="color:white; margin-top:0;">${escapeHtml(project.title)}</h2>
-      <p style="margin:0.7rem 0; color:#a1a1c2; line-height: 1.5;">${escapeHtml(
-        project.description
-      )}</p>
-      <p><strong style="color:#a78bfa;">Technologies:</strong> ${escapeHtml(
-        techList
-      )}</p>
-      <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-        ${
-          project.github && project.github !== "#"
-            ? `<a href="${escapeHtml(
-                project.github
-              )}" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.85rem; text-decoration:none; background:#7c3aed; color:white; border-radius:4px;"><i class="fab fa-github"></i> Code</a>`
-            : ""
-        }
-        ${
-          project.liveDemo && project.liveDemo !== "#"
-            ? `<a href="${escapeHtml(
-                project.liveDemo
-              )}" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.85rem; text-decoration:none; background:#4f46e5; color:white; border-radius:4px;"><i class="fas fa-external-link-alt"></i> Live Demo</a>`
-            : ""
-        }
-      </div>
-    `;
+            <h2 style="color:white; margin-top:0;">${escapeHtml(
+              project.title
+            )}</h2>
+            <p style="margin:0.8rem 0; color:#a1a1c2; line-height: 1.6; font-size: 0.95rem;">${escapeHtml(
+              project.description
+            )}</p>
+            <p><strong style="color:#a78bfa;">Technologies:</strong> ${escapeHtml(
+              techList
+            )}</p>
+            <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+              ${
+                project.github && project.github !== "#"
+                  ? `<a href="${escapeHtml(
+                      project.github
+                    )}" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.85rem;"><i class="fab fa-github"></i> Code</a>`
+                  : ""
+              }
+              ${
+                project.liveDemo && project.liveDemo !== "#"
+                  ? `<a href="${escapeHtml(
+                      project.liveDemo
+                    )}" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.85rem;"><i class="fas fa-external-link-alt"></i> Live Demo</a>`
+                  : ""
+              }
+            </div>
+          `;
 
           modalBodyContent.appendChild(imgDiv);
           modalBodyContent.appendChild(detailsDiv);
@@ -903,18 +1321,19 @@
         };
 
         // 4. Event Delegation for Filters
-        const filterContainer =
-          document.querySelector(".filter-buttons-container") || document.body;
-        filterContainer.addEventListener("click", (e) => {
-          const btn = e.target.closest(".filter-btn");
-          if (!btn) return;
+        const filterGroup = document.getElementById("filterGroup");
+        if (filterGroup) {
+          filterGroup.addEventListener("click", (e) => {
+            const btn = e.target.closest(".filter-btn");
+            if (!btn) return;
 
-          document
-            .querySelectorAll(".filter-btn")
-            .forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-          renderProjects(btn.getAttribute("data-filter"));
-        });
+            document
+              .querySelectorAll(".filter-btn")
+              .forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            renderProjects(btn.getAttribute("data-filter"));
+          });
+        }
 
         // Modal Close Handlers
         const closeBtn = document.querySelector(".close");
@@ -923,11 +1342,104 @@
             if (modal) modal.style.display = "none";
           };
         }
-        window.onclick = (e) => {
+        window.addEventListener("click", (e) => {
           if (modal && e.target === modal) modal.style.display = "none";
-        };
+        });
+        window.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && modal) modal.style.display = "none";
+        });
 
-        // Helper sanitizer to prevent basic template XSS
+        // 5. Dynamic Typing Effect
+        const roles = [
+          "React & Laravel Dev",
+          "Symfony Specialist",
+          "WordPress & CMS Builder",
+          "Full Stack Architect",
+        ];
+        let roleIdx = 0,
+          charIdx = 0,
+          isDeleting = false;
+        const typedEl = document.getElementById("typedElement");
+
+        function typeEffect() {
+          if (!typedEl) return;
+          const currentRole = roles[roleIdx];
+
+          if (isDeleting) {
+            typedEl.textContent = currentRole.substring(0, charIdx - 1);
+            charIdx--;
+          } else {
+            typedEl.textContent = currentRole.substring(0, charIdx + 1);
+            charIdx++;
+          }
+
+          let speed = isDeleting ? 40 : 90;
+
+          if (!isDeleting && charIdx === currentRole.length) {
+            speed = 2200;
+            isDeleting = true;
+          } else if (isDeleting && charIdx === 0) {
+            isDeleting = false;
+            roleIdx = (roleIdx + 1) % roles.length;
+            speed = 400;
+          }
+
+          setTimeout(typeEffect, speed);
+        }
+        typeEffect();
+
+        // 6. Mobile Navigation Toggle
+        const menuIcon = document.getElementById("menu-icon");
+        const mobileNav = document.getElementById("mobileNav");
+        if (menuIcon && mobileNav) {
+          menuIcon.addEventListener("click", () =>
+            mobileNav.classList.toggle("active")
+          );
+          mobileNav.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () =>
+              mobileNav.classList.remove("active")
+            );
+          });
+        }
+
+        // 8. Contact Form Async Submission with Button State
+        const form = document.getElementById("contactForm");
+        const submitBtn = document.getElementById("submitBtn");
+
+        if (form && submitBtn) {
+          form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Sending...`;
+
+            const formData = new FormData(form);
+            try {
+              const response = await fetch(form.action, {
+                method: "POST",
+                body: formData,
+                headers: { Accept: "application/json" },
+              });
+              if (response.ok) {
+                alert(
+                  "✨ Thank you! Your message has been sent successfully. I will respond within 24 hours."
+                );
+                form.reset();
+              } else {
+                alert(
+                  "Something went wrong. Please email hamidachaou379@gmail.com directly."
+                );
+              }
+            } catch (err) {
+              alert("Please email me directly at: hamidachaou379@gmail.com");
+            } finally {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = originalBtnText;
+            }
+          });
+        }
+
+        // Utility: Sanitizer for XSS Prevention
         function escapeHtml(str) {
           if (!str) return "";
           return String(str)
@@ -936,6 +1448,12 @@
             .replace(/>/g, "&gt;")
             .replace(/"/g, "&quot;")
             .replace(/'/g, "&#039;");
+        }
+
+        // Dynamic Copyright Year
+        const currentYearEl = document.getElementById("currentYear");
+        if (currentYearEl) {
+          currentYearEl.textContent = new Date().getFullYear();
         }
 
         // Initialize Data Load
