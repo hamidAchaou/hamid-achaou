@@ -1,384 +1,444 @@
-let words = document.querySelectorAll(".word");
-words.forEach((word) => {
-  let letters = word.textContent.split("");
-  word.textContent = ""; // Corrected line
-  letters.forEach((letter) => {
-    let span = document.createElement("span");
-    span.textContent = letter;
-    span.className = "letter";
-    word.append(span);
-  });
-});
+/**
+ * Portfolio interactions.
+ * Progressive enhancement: navigation, contact links, and CV download remain usable
+ * without JavaScript; dynamic project content requires data/projects.json.
+ */
+(() => {
+  "use strict";
 
-let currentWordIndex = 0;
-let maxWordIndex = words.length - 1;
-words[currentWordIndex].style.opacity = "1";
-
-let changeText = () => {
-  let currentWord = words[currentWordIndex];
-  let nextWord =
-    currentWordIndex === maxWordIndex ? words[0] : words[currentWordIndex + 1];
-
-  Array.from(currentWord.children).forEach((letter, i) => {
-    setTimeout(() => {
-      letter.className = "letter out";
-    }, i * 80);
-  });
-  nextWord.style.opacity = "1";
-  Array.from(nextWord.children).forEach((letter, i) => {
-    letter.className = "letter behind";
-    setTimeout(() => {
-      letter.className = "letter in";
-    }, 340 + i * 80);
-  });
-  currentWordIndex =
-    currentWordIndex === maxWordIndex ? 0 : currentWordIndex + 1;
-};
-
-changeText();
-setInterval(changeText, 3000);
-
-//====================== circle skills =========================================
-let circles = document.querySelectorAll(".circle");
-circles.forEach((elem) => {
-  var dots = elem.getAttribute("data-dots");
-  var marked = elem.getAttribute("data-percent");
-  var percent = Math.floor((dots * marked) / 100);
-  var points = "";
-  var rotate = 360 / dots;
-
-  for (let i = 0; i < dots; i++) {
-    points += `<div class="points" style="--i:${i}; --rot:${rotate}deg"></div>`;
-  }
-  elem.innerHTML = points;
-
-  const pointsMarked = elem.querySelectorAll(".points");
-  for (let i = 0; i < percent; i++) {
-    pointsMarked[i].classList.add("marked");
-  }
-});
-
-// ============= mix it up PORTFOLIO SECTION ============================
-var mixer = mixitup(".container");
-//modal crards projects
-document.addEventListener("DOMContentLoaded", function () {
-  var modal = document.getElementById("projectModal");
-  var modalTitle = document.getElementById("modalTitle");
-  var modalImage = document.getElementById("modalImage");
-  var modalDescription = document.getElementById("modalDescription");
-  var closeBtn = document.getElementsByClassName("close")[0];
-  var projectLinks = document.querySelectorAll(".project-details");
-  projectLinks.forEach(function (link) {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      modalTitle.textContent = this.getAttribute("data-title");
-      modalImage.src = this.getAttribute("data-image");
-      modalDescription.textContent = this.getAttribute("data-description");
-      modal.style.display = "block";
-    });
-  });
-  closeBtn.onclick = function () {
-    modal.style.display = "none";
+  const SELECTORS = {
+    menuButton: "#menu-icon",
+    mobileNav: "#mobileNav",
+    projectsContainer: "#projectsContainer",
+    filterGroup: "#filterGroup",
+    modal: "#projectModal",
+    modalBody: "#modalBodyContent",
+    contactForm: "#contactForm",
+    submitButton: "#submitBtn",
+    formStatus: "#formStatus",
+    typedText: "#typedElement",
+    currentYear: "#currentYear",
   };
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  };
-});
-document.addEventListener("DOMContentLoaded", function () {
-  let projectsData;
-  const portfolioGallery = document.querySelector(".portfolio-gallery");
-  const modalReport = document.getElementById("modalReport");
-  const filterButtons = document.querySelectorAll(".filter-buttons .btn");
-  const modal = document.getElementById("projectModal");
-  const closeBtn = modal.querySelector(".close");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalImage = document.getElementById("modalImage");
-  const modalDescription = document.getElementById("modalDescription");
-  // Fetch the projects data
-  fetch("data/projects.json")
-    .then((response) => response.json())
-    .then((data) => {
-      projectsData = data.projects;
-      displayProjects("all");
-      setupEventListeners();
-      initScrollReveal();
-    })
-    .catch((error) => console.error("Error loading projects:", error));
-  function displayProjects(category) {
-    portfolioGallery.innerHTML = "";
-    projectsData.forEach((project) => {
-      if (category === "all" || project.category === category) {
-        const projectElement = createProjectElement(project);
-        portfolioGallery.appendChild(projectElement);
-      }
+
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  document.addEventListener("DOMContentLoaded", () => {
+    initializeNavigation();
+    initializeActiveNavigation();
+    initializeTypingEffect();
+    initializeProjects();
+    initializeContactForm();
+    initializeCurrentYear();
+  });
+
+  function initializeNavigation() {
+    const menuButton = $(SELECTORS.menuButton);
+    const mobileNav = $(SELECTORS.mobileNav);
+
+    if (!menuButton || !mobileNav) return;
+
+    const setMenuOpen = (isOpen) => {
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+      mobileNav.classList.toggle("active", isOpen);
+      document.body.classList.toggle("menu-open", isOpen);
+    };
+
+    menuButton.addEventListener("click", () => {
+      setMenuOpen(menuButton.getAttribute("aria-expanded") !== "true");
     });
-    // Re-initialize ScrollReveal for new elements
-    initScrollReveal();
-  }
-  function createProjectElement(project) {
-    const projectDiv = document.createElement("div");
-    projectDiv.className = `port-box mix ${project.category}`;
-    projectDiv.dataset.projectId = project.id;
-    projectDiv.innerHTML = `
-            <div class="port-image">
-                <img src="${project.image}" alt="${project.title}">
-            </div>
-            <div class="port-content">
-                <h3>${project.title}</h3>
-                <p>${project.description.substring(0, 100)}...</p>
-                <a href="#" class="project-details">
-                    <i class='bx bx-link-external'></i>
-                </a>
-            </div>
-        `;
-    return projectDiv;
+
+    mobileNav.addEventListener("click", (event) => {
+      if (event.target.closest("a")) setMenuOpen(false);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) setMenuOpen(false);
+    }, { passive: true });
   }
 
-  function setupEventListeners() {
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", function () {
-        const category = this.dataset.filter;
-        displayProjects(category);
+  function initializeActiveNavigation() {
+    const sections = $$("main section[id]");
+    const navLinks = $$('header nav a[href^="#"], #mobileNav a[href^="#"]');
+    if (!sections.length || !navLinks.length || !("IntersectionObserver" in window)) return;
+
+    const linksByTarget = new Map();
+    navLinks.forEach((link) => {
+      const target = link.getAttribute("href");
+      if (!linksByTarget.has(target)) linksByTarget.set(target, []);
+      linksByTarget.get(target).push(link);
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+
+      navLinks.forEach((link) => {
+        const active = link.getAttribute("href") === `#${visible.target.id}`;
+        link.classList.toggle("active", active);
+        if (active) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
       });
+    }, { rootMargin: "-25% 0px -60% 0px", threshold: [0, 0.15, 0.4] });
+
+    sections.forEach((section) => observer.observe(section));
+  }
+
+  function initializeTypingEffect() {
+    const element = $(SELECTORS.typedText);
+    if (!element) return;
+
+    const roles = [
+      "React & Laravel Developer",
+      "Symfony Developer",
+      "WordPress & CMS Developer",
+      "Full Stack Developer",
+    ];
+
+    if (reduceMotion.matches) {
+      element.textContent = roles[0];
+      return;
+    }
+
+    let roleIndex = 0;
+    let characterIndex = 0;
+    let deleting = false;
+    let timeoutId;
+
+    const tick = () => {
+      const role = roles[roleIndex];
+
+      if (deleting) characterIndex -= 1;
+      else characterIndex += 1;
+
+      element.textContent = role.slice(0, characterIndex);
+
+      let delay = deleting ? 45 : 85;
+      if (!deleting && characterIndex >= role.length) {
+        deleting = true;
+        delay = 1800;
+      } else if (deleting && characterIndex <= 0) {
+        deleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        delay = 350;
+      }
+
+      timeoutId = window.setTimeout(tick, delay);
+    };
+
+    timeoutId = window.setTimeout(tick, 250);
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) window.clearTimeout(timeoutId);
+      else if (!reduceMotion.matches) timeoutId = window.setTimeout(tick, 300);
+    });
+  }
+
+  function initializeProjects() {
+    const container = $(SELECTORS.projectsContainer);
+    const filterGroup = $(SELECTORS.filterGroup);
+    const modal = $(SELECTORS.modal);
+    const modalBody = $(SELECTORS.modalBody);
+
+    if (!container || !filterGroup || !modal || !modalBody) return;
+
+    const modalTitle = $("#modalTitle");
+    const closeButton = $(".close", modal);
+    let projects = [];
+    let previouslyFocusedElement = null;
+
+    const setStatus = (message, state = "info") => {
+      container.replaceChildren();
+      container.setAttribute("aria-busy", "false");
+      const status = document.createElement("p");
+      status.className = "status-message";
+      status.dataset.state = state;
+      status.setAttribute("role", state === "error" ? "alert" : "status");
+      status.textContent = message;
+      container.append(status);
+    };
+
+    const createProjectCard = (project) => {
+      const card = document.createElement("article");
+      card.className = "project-card";
+      card.dataset.category = validText(project.category) || "web";
+
+      const openButton = document.createElement("button");
+      openButton.className = "project-open";
+      openButton.type = "button";
+      openButton.setAttribute("aria-label", `View project: ${validText(project.title) || "Untitled project"}`);
+      openButton.addEventListener("click", () => openProject(project));
+
+      const imageWrapper = document.createElement("div");
+      imageWrapper.className = "project-img";
+      const image = document.createElement("img");
+      const imageUrl = safeResourceUrl(project.image, true);
+      if (imageUrl) image.src = imageUrl;
+      image.alt = validText(project.imageAlt) || `${validText(project.title) || "Project"} preview`;
+      image.loading = "lazy";
+      image.decoding = "async";
+      image.width = 640;
+      image.height = 360;
+      image.addEventListener("error", () => {
+        image.removeAttribute("src");
+        image.alt = "Project preview unavailable";
+        imageWrapper.classList.add("image-unavailable");
+      }, { once: true });
+      imageWrapper.append(image);
+
+      const info = document.createElement("div");
+      info.className = "project-info";
+
+      const title = document.createElement("h3");
+      title.textContent = validText(project.title) || "Untitled project";
+
+      const tags = document.createElement("div");
+      tags.className = "project-tags";
+      (Array.isArray(project.technologies) ? project.technologies : [])
+        .filter((tech) => validText(tech))
+        .slice(0, 4)
+        .forEach((tech) => {
+          const tag = document.createElement("span");
+          tag.className = "tag";
+          tag.textContent = tech;
+          tags.append(tag);
+        });
+
+      const description = document.createElement("p");
+      const fullDescription = validText(project.description) || "Project details are not available.";
+      description.textContent = fullDescription.length > 120
+        ? `${fullDescription.slice(0, 117).trimEnd()}…`
+        : fullDescription;
+
+      info.append(title, tags, description);
+      openButton.append(imageWrapper, info);
+      card.append(openButton);
+      return card;
+    };
+
+    const renderProjects = (category = "all") => {
+      const filteredProjects = category === "all"
+        ? projects
+        : projects.filter((project) => project.category === category);
+
+      container.replaceChildren();
+      container.setAttribute("aria-busy", "false");
+
+      if (!filteredProjects.length) {
+        setStatus("No projects found in this category.");
+        return;
+      }
+
+      const fragment = document.createDocumentFragment();
+      filteredProjects.forEach((project) => fragment.append(createProjectCard(project)));
+      container.append(fragment);
+    };
+
+    const closeModal = () => {
+      modal.hidden = true;
+      document.body.classList.remove("modal-open");
+      if (previouslyFocusedElement instanceof HTMLElement) previouslyFocusedElement.focus();
+    };
+
+    const addExternalLink = (parent, url, label, className) => {
+      const safeUrl = safeExternalUrl(url);
+      if (!safeUrl) return;
+
+      const link = document.createElement("a");
+      link.className = `btn ${className || ""}`.trim();
+      link.href = safeUrl;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = label;
+      parent.append(link);
+    };
+
+    const openProject = (project) => {
+      previouslyFocusedElement = document.activeElement;
+      modalBody.replaceChildren();
+
+      if (modalTitle) modalTitle.textContent = validText(project.title) || "Project details";
+
+      const imageColumn = document.createElement("div");
+      imageColumn.className = "modal-project-image";
+      const image = document.createElement("img");
+      const imageUrl = safeResourceUrl(project.image, true);
+      if (imageUrl) image.src = imageUrl;
+      image.alt = validText(project.imageAlt) || `${validText(project.title) || "Project"} preview`;
+      image.loading = "lazy";
+      image.addEventListener("error", () => image.removeAttribute("src"), { once: true });
+      imageColumn.append(image);
+
+      const details = document.createElement("div");
+      details.className = "modal-project-details";
+
+      const title = document.createElement("h2");
+      title.textContent = validText(project.title) || "Project details";
+      const description = document.createElement("p");
+      description.textContent = validText(project.description) || "No description available.";
+      const techHeading = document.createElement("h3");
+      techHeading.textContent = "Technologies";
+      const techList = document.createElement("ul");
+      techList.className = "modal-tech-list";
+
+      (Array.isArray(project.technologies) ? project.technologies : [])
+        .filter((tech) => validText(tech))
+        .forEach((tech) => {
+          const item = document.createElement("li");
+          item.textContent = tech;
+          techList.append(item);
+        });
+
+      const links = document.createElement("div");
+      links.className = "modal-project-links";
+      addExternalLink(links, project.github, "View source code", "btn-outline");
+      addExternalLink(links, project.liveDemo, "Live demo", "");
+      addExternalLink(links, project.report, "Project report", "btn-outline");
+
+      details.append(title, description);
+      if (techList.childElementCount) details.append(techHeading, techList);
+      if (links.childElementCount) details.append(links);
+      modalBody.append(imageColumn, details);
+
+      modal.hidden = false;
+      document.body.classList.add("modal-open");
+      if (closeButton) closeButton.focus();
+    };
+
+    const closeIfBackdrop = (event) => {
+      if (event.target === modal) closeModal();
+    };
+
+    filterGroup.addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-filter]");
+      if (!button || !filterGroup.contains(button)) return;
+
+      $$(".filter-btn", filterGroup).forEach((filterButton) => {
+        const active = filterButton === button;
+        filterButton.classList.toggle("active", active);
+        filterButton.setAttribute("aria-pressed", String(active));
+      });
+      renderProjects(button.dataset.filter || "all");
     });
 
-    portfolioGallery.addEventListener("click", function (e) {
-      if (e.target.closest(".project-details")) {
-        e.preventDefault();
-        const projectId = e.target.closest(".port-box").dataset.projectId;
-        const project = projectsData.find((p) => p.id === projectId);
-        if (project) {
-          modalTitle.textContent = project.title;
-          modalImage.src = project.image;
-          modalImage.alt = project.title;
-          modalDescription.textContent = project.description;
-
-          // Display technologies
-          modalTechnologies.innerHTML = project.technologies
-            .map((tech) => `<span class="tech-tag">${tech}</span>`)
-            .join("");
-
-          // Set up links (if available)
-          if (project.github) {
-            modalGithub.href = project.github;
-            modalGithub.style.display = "inline-block";
-          } else {
-            modalGithub.style.display = "none";
-          }
-
-          if (project.liveDemo) {
-            modalLive.href = project.liveDemo;
-            modalLive.style.display = "inline-block";
-          } else {
-            modalLive.style.display = "none";
-          }
-
-          // Add report button if report field is not empty
-          if (project.report && project.report !== "") {
-            modalReport.href = project.report;
-            modalReport.style.display = "inline-block";
-          } else {
-            modalReport.style.display = "none";
-          }
-
-          modal.style.display = "block";
+    if (closeButton) closeButton.addEventListener("click", closeModal);
+    modal.addEventListener("click", closeIfBackdrop);
+    document.addEventListener("keydown", (event) => {
+      if (modal.hidden) return;
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeModal();
+      } else if (event.key === "Tab") {
+        const focusable = $$('a[href], button:not(:disabled), input:not(:disabled), textarea:not(:disabled), [tabindex]:not([tabindex="-1"])', modal)
+          .filter((element) => element.getClientRects().length > 0);
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
         }
       }
     });
 
-    closeBtn.onclick = function () {
-      modal.style.display = "none";
-    };
-
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    };
+    fetch("data/projects.json", { headers: { Accept: "application/json" } })
+      .then((response) => {
+        if (!response.ok) throw new Error(`Projects request failed (${response.status}).`);
+        return response.json();
+      })
+      .then((data) => {
+        const collection = Array.isArray(data) ? data : data?.projects;
+        if (!Array.isArray(collection)) throw new TypeError("The projects file must contain a projects array.");
+        projects = collection.filter((project) => project && typeof project === "object");
+        renderProjects("all");
+      })
+      .catch((error) => {
+        console.error("Unable to load portfolio projects:", error);
+        setStatus("Projects could not be loaded. Please try again later or contact me directly.", "error");
+      });
   }
 
-  function initScrollReveal() {
-    ScrollReveal().reveal(".port-box", {
-      origin: "left",
-      distance: "50px",
-      duration: 1500,
-      delay: 300,
-      easing: "cubic-bezier(0.5, 0, 0, 1)",
-      interval: 200,
-      opacity: 0,
-      scale: 0.7,
-      cleanup: true,
+  function initializeContactForm() {
+    const form = $(SELECTORS.contactForm);
+    const submitButton = $(SELECTORS.submitButton);
+    const status = $(SELECTORS.formStatus);
+    if (!form || !submitButton) return;
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+
+      const originalButtonContent = submitButton.innerHTML;
+      submitButton.disabled = true;
+      submitButton.setAttribute("aria-busy", "true");
+      submitButton.textContent = "Sending…";
+      if (status) {
+        status.textContent = "Sending your message…";
+        status.dataset.state = "info";
+      }
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+
+        if (!response.ok) throw new Error(`Contact form request failed (${response.status}).`);
+        form.reset();
+        if (status) {
+          status.textContent = "Thank you! Your message was sent. I will get back to you as soon as possible.";
+          status.dataset.state = "success";
+        }
+      } catch (error) {
+        console.error("Unable to submit contact form:", error);
+        if (status) {
+          status.textContent = "Your message could not be sent. Please email hamidachaou379@gmail.com directly.";
+          status.dataset.state = "error";
+        }
+      } finally {
+        submitButton.disabled = false;
+        submitButton.removeAttribute("aria-busy");
+        submitButton.innerHTML = originalButtonContent;
+      }
     });
   }
-});
 
-// =============  active menue ===============================
-let menuLi = document.querySelectorAll("header  ul li a");
-let section = document.querySelectorAll("section");
-
-function activeMenu() {
-  let len = section.length;
-  while (--len && window.scrollY + 97 < section[len].offsetTop) {}
-  menuLi.forEach((sec) => sec.classList.remove("active"));
-  menuLi[len].classList.add("active");
-}
-
-activeMenu();
-window.addEventListener("scroll", activeMenu);
-
-// =============  sticky navbar ===============================
-const header = document.querySelector("header");
-window.addEventListener("scroll", function () {
-  header.classList.toggle("sticky", window.scrollY > 50);
-});
-
-// ========== togel icon navbar ===================================
-let menuIcon = document.querySelector("#menu-icon");
-let navList = document.querySelector(".navlist");
-
-menuIcon.onclick = () => {
-  menuIcon.classList.toggle("bx-x");
-  navList.classList.toggle("open");
-};
-
-window.onscroll = () => {
-  menuIcon.classList.remove("bx-x");
-  navList.classList.remove("open");
-};
-
-// ========== paralox ===================================
-// const observer = new IntersectionObserver((entries) => {
-//     entries.forEach((entry)=> {
-//         if(entry.isIntersecting) {
-//             entry.target.classList.add("show-items")
-//         } else {
-//             entry.target.classList.remove("show-items")
-//         }
-//     })
-// });
-
-// const scrollScale = document.querySelectorAll(".scroll-scale");
-// scrollScale.forEach((el)=> observer.observe(el));
-
-// const scrollBottom = document.querySelectorAll(".scroll-bottom");
-// scrollBottom.forEach((el)=> observer.observe(el));
-
-// const scrollTop = document.querySelectorAll(".scroll-top");
-// scrollTop.forEach((el)=> observer.observe(el));
-
-// scrollreveal
-// ScrollReveal animations
-
-ScrollReveal({
-  reset: true,
-  distance: "80px",
-  duration: 2000,
-  delay: 200,
-});
-
-ScrollReveal().reveal(".home-content, .heading", { origin: "top" });
-ScrollReveal().reveal(
-  ".home-img, .services-container, .portfolio-box, .contact form",
-  { origin: "bottom" }
-);
-ScrollReveal().reveal(".home-content h1, .about-img", { origin: "left" });
-ScrollReveal().reveal(".home-content p, .about-content", { origin: "right" });
-
-// ScrollReveal().reveal('.skill-left, .skill-right', { origin: 'bottom', interval: 200 });
-// ScrollReveal().reveal('.img-about, .about-content', { origin: 'bottom', interval: 200 });
-ScrollReveal().reveal(".service-box", { origin: "bottom", interval: 200 });
-ScrollReveal().reveal(".port-box", { origin: "bottom", interval: 200 });
-
-// skills
-// Reveal main text
-ScrollReveal().reveal(".skills .main-text", {
-  origin: "top",
-  distance: "20px",
-  duration: 1000,
-  delay: 200,
-});
-
-// Reveal skill bars
-ScrollReveal().reveal(".skill-left .skill-bar", {
-  origin: "left",
-  distance: "50px",
-  duration: 1000,
-  interval: 200,
-});
-
-// Animate skill bar progress
-ScrollReveal().reveal(".skill-left .skill-bar .bar span", {
-  origin: "left",
-  distance: "100%",
-  duration: 1500,
-  interval: 200,
-  afterReveal: (el) => {
-    el.style.transform = "translateX(0)";
-  },
-});
-
-// Reveal professional skills boxes
-ScrollReveal().reveal(".skill-right .box", {
-  origin: "right",
-  distance: "50px",
-  duration: 1000,
-  interval: 200,
-});
-
-// aboute
-// Reveal the image
-ScrollReveal().reveal(".img-about", {
-  origin: "left",
-  distance: "50px",
-  duration: 1000,
-  delay: 200,
-  easing: "ease-in-out",
-});
-
-// Reveal the info boxes with a stagger effect
-ScrollReveal().reveal(
-  ".img-about .info-about1, .img-about .info-about2, .img-about .info-about3",
-  {
-    origin: "bottom",
-    distance: "30px",
-    duration: 800,
-    interval: 200,
-    opacity: 0,
-    scale: 0.8,
-    easing: "ease-out",
+  function initializeCurrentYear() {
+    const element = $(SELECTORS.currentYear);
+    if (element) element.textContent = String(new Date().getFullYear());
   }
-);
 
-// Reveal the about content
-ScrollReveal().reveal(".about-content", {
-  origin: "right",
-  distance: "50px",
-  duration: 1000,
-  delay: 400,
-  easing: "ease-in-out",
-});
-
-// Reveal the text elements within about content
-ScrollReveal().reveal(
-  ".about-content span, .about-content h2, .about-content p",
-  {
-    origin: "bottom",
-    distance: "20px",
-    duration: 800,
-    interval: 200,
-    opacity: 0,
-    easing: "ease-out",
+  function validText(value) {
+    return typeof value === "string" ? value.trim() : "";
   }
-);
 
-// =========== download cv ==========================
-document.getElementById("download-cv").addEventListener("click", function () {
-  const link = document.createElement("a");
-  link.href = "./assets/cv/cv-fr.pdf";
-  link.download = "Hamid_AChaou_CV.pdf";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-});
+  function safeExternalUrl(value) {
+    if (typeof value !== "string" || !value.trim()) return "";
+    try {
+      const url = new URL(value, window.location.href);
+      return ["https:", "http:"].includes(url.protocol) ? url.href : "";
+    } catch {
+      return "";
+    }
+  }
+
+  function safeResourceUrl(value, allowRelative = false) {
+    if (typeof value !== "string" || !value.trim()) return "";
+    const input = value.trim();
+    if (allowRelative && !/^[a-z][a-z\d+.-]*:/i.test(input) && !input.startsWith("//")) {
+      return input;
+    }
+    return safeExternalUrl(input);
+  }
+})();
